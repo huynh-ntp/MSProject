@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 export function GameScreen1({ navigation }) {
@@ -14,7 +13,7 @@ export function GameScreen1({ navigation }) {
                 <Text style={{ padding: 15, fontSize: 16 }}>Stream game </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs2)}>
-                <Text style={{ padding: 15, fontSize: 16 }}>Kiếm tiền</Text>
+                <Text style={{ padding: 15, fontSize: 16 }}>Cày thuê</Text>
             </TouchableOpacity>
         </View>
     );
@@ -61,16 +60,16 @@ export function GameScreen1({ navigation }) {
     const qs4 = () => (
         <View style={styles.container}>
             <Text style={styles.qs}>Số lượng game mà bạn chơi?</Text>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs5)}>
+            <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
                 <Text style={{ padding: 15, fontSize: 16 }}>Dưới 5 game</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs5)}>
+            <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
                 <Text style={{ padding: 15, fontSize: 15 }}>Dưới 10 game</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs5)}>
+            <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
                 <Text style={{ padding: 15, fontSize: 15 }}>Dưới 15 game</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs5)}>
+            <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
                 <Text style={{ padding: 15, fontSize: 16 }}>Trên 15 game</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setqsShow(qs3)}>
@@ -78,38 +77,39 @@ export function GameScreen1({ navigation }) {
             </TouchableOpacity>
         </View>
     );
-    const qs5 = () => (
-        <View style={styles.container}>
-            <Text style={styles.qs}>Dung lượng trung bình một game?</Text>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(final)}>
-                <Text style={{ padding: 15, fontSize: 16 }}>Dưới 5GB</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(final)}>
-                <Text style={{ padding: 15, fontSize: 16 }}>~10GB</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(final)}>
-                <Text style={{ padding: 15, fontSize: 15 }}>~20GB</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(final)}>
-                <Text style={{ padding: 15, fontSize: 15 }}>~30GB</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(final)}>
-                <Text style={{ padding: 15, fontSize: 16 }}>~40GB</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(final)}>
-                <Text style={{ padding: 15, fontSize: 16 }}>~50GB</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(final)}>
-                <Text style={{ padding: 15, fontSize: 16 }}>Trên 50GB</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setqsShow(qs4)}>
-                <Image style={styles.back} source={require('../assets/back.png')} />
-            </TouchableOpacity>
-        </View>
-    );
+    //     const qs5 = () => (
+    //         <View style={styles.container}>
+    //             <Text style={styles.qs}>Dung lượng trung bình một game?</Text>
+    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
+    //                 <Text style={{ padding: 15, fontSize: 16 }}>Dưới 5GB</Text>
+    //             </TouchableOpacity>
+    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
+    //                 <Text style={{ padding: 15, fontSize: 16 }}>~10GB</Text>
+    //             </TouchableOpacity>
+    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
+    //                 <Text style={{ padding: 15, fontSize: 15 }}>~20GB</Text>
+    //             </TouchableOpacity>
+    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
+    //                 <Text style={{ padding: 15, fontSize: 15 }}>~30GB</Text>
+    //             </TouchableOpacity>
+    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
+    //                 <Text style={{ padding: 15, fontSize: 16 }}>~40GB</Text>
+    //             </TouchableOpacity>
+    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
+    //                 <Text style={{ padding: 15, fontSize: 16 }}>~50GB</Text>
+    //             </TouchableOpacity>
+    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
+    //                 <Text style={{ padding: 15, fontSize: 16 }}>Trên 50GB</Text>
+    //             </TouchableOpacity>
+    //             <TouchableOpacity onPress={() => setqsShow(qs4)}>
+    //                 <Image style={styles.back} source={require('../assets/back.png')} />
+    //             </TouchableOpacity>
+    //         </View>
+    //     );
 
     const [price, setprice] = useState('');
     const [errorInput, setErrorInput] = useState('');
+    const [isEnd, setIsEnd] = useState(false);
     const changePrice = (value) => {
         if (isNaN(value)) {
             setErrorInput('Please input a number!');
@@ -130,7 +130,7 @@ export function GameScreen1({ navigation }) {
             <TextInput onChangeText={(value) => changePrice(value)} value={price} style={styles.inputPrice} placeholderTextColor="#000000" placeholder="Số tiền bạn có"></TextInput>
             <Text style={styles.errorInput}>{errorInput}</Text>
             <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity onPress={() => setqsShow(qs5)} style={{ marginRight: 120 }}>
+                <TouchableOpacity onPress={() => setIsEnd(false)} style={{ marginRight: 120 }}>
                     <Image style={{ width: 60, height: 60 }} source={require('../assets/back.png')}></Image>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => gotoSearch()}>
@@ -139,8 +139,8 @@ export function GameScreen1({ navigation }) {
             </View>
         </View>
     );
-    const [qsShow, setqsShow] = useState(qs1);
-    return <View style={{ flex: 1 }}>{final()}</View>;
+    const [qsShow, setqsShow] = useState(qs1());
+    return !isEnd ? <View style={{ flex: 1 }}>{qsShow}</View> : <View style={{ flex: 1 }}>{final()}</View>;
 }
 
 const styles = StyleSheet.create({

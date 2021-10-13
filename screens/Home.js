@@ -68,7 +68,12 @@ export default function Home({ navigation }) {
                         <Image style={styles.categoryImage} source={require('../assets/controller.png')} />
                         <Text>Chơi game</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.option}>
+                    <TouchableOpacity
+                        style={styles.option}
+                        onPress={() => {
+                            navigation.navigate('RenderScreen');
+                        }}
+                    >
                         <Image style={styles.categoryImage} source={require('../assets/vector.png')} />
                         <Text>Render video</Text>
                     </TouchableOpacity>

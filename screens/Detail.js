@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal, But
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
+import Intl from 'intl';
+import 'intl/locale-data/jsonp/vi';
 import { CPUList, VGAList, mainList, PSUList } from '../components/ListAccessory';
 export function Detail({ navigation, route }) {
     const { pc } = route.params;
@@ -82,14 +84,15 @@ export function Detail({ navigation, route }) {
                 </View>
                 <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
                     <Text style={styles.title}>
-                        Name: <Text style={styles.description}>{name}</Text>
+                        Tên: <Text style={styles.description}>{name}</Text>
                     </Text>
                     <Text style={styles.title}>
-                        Description: <Text style={styles.description}>{description}</Text>
+                        Mô tả: <Text style={styles.description}>{description}</Text>
                     </Text>
                     <Text style={styles.title}>
-                        Price: <Text style={styles.description}>{price} VND </Text>
+                        Giá: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)} </Text>
                     </Text>
+                    <Text style={styles.buttonChange}>Click để thay đổi</Text>
                 </View>
             </TouchableOpacity>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ height: 200, marginTop: 30 }}>
@@ -119,9 +122,14 @@ export function Detail({ navigation, route }) {
                 </TouchableOpacity>
             </ScrollView>
             <View style={{ width: '100%', height: 180, alignItems: 'flex-end' }}>
-                <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>Total price: {totalPrice} VND</Text>
-                <TouchableOpacity style={{ marginEnd: 20, marginTop: 10 }}>
-                    <Text style={styles.button}>Purchase</Text>
+                <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>Tổng giá: {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)}</Text>
+                <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate('Payment');
+                    }}
+                    style={{ marginEnd: 20, marginTop: 10 }}
+                >
+                    <Text style={styles.button}>Xác nhận giao hàng</Text>
                 </TouchableOpacity>
             </View>
             <Modal style={styles.modal} transparent visible={modalVisible} animationType="slide">
@@ -137,13 +145,13 @@ export function Detail({ navigation, route }) {
                                 </View>
                                 <View style={{ width: '60%', height: '100%', marginTop: '5%' }}>
                                     <Text style={styles.title}>
-                                        Name: <Text style={styles.description}>{access.name}</Text>
+                                        Tên: <Text style={styles.description}>{access.name}</Text>
                                     </Text>
                                     <Text style={styles.title}>
-                                        Description: <Text style={styles.description}>{access.description}</Text>
+                                        Mô tả: <Text style={styles.description}>{access.description}</Text>
                                     </Text>
                                     <Text style={styles.title}>
-                                        Price: <Text style={styles.description}>{access.price} VND </Text>
+                                        Giá: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(access.price)} </Text>
                                     </Text>
                                 </View>
                             </TouchableOpacity>
@@ -163,6 +171,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         paddingHorizontal: 20,
         borderRadius: 30,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.0,
+        elevation: 21,
     },
     title: {
         fontWeight: 'bold',
@@ -178,12 +194,33 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 20,
     },
-    touchAble2: { height: 200, backgroundColor: '#FFF', borderRadius: 20, marginLeft: 20 },
+    touchAble2: {
+        height: 200,
+        backgroundColor: '#FFF',
+        borderRadius: 20,
+        marginLeft: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.0,
+        elevation: 21,
+    },
     button: {
         paddingHorizontal: 20,
         paddingVertical: 15,
         backgroundColor: '#909DD1',
         borderRadius: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.0,
+        elevation: 21,
     },
     modal: {
         flex: 1,
@@ -198,6 +235,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#FF9B70',
         paddingVertical: 5,
         paddingHorizontal: 10,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.0,
+        elevation: 21,
     },
     touchAble3: {
         width: '90%',
@@ -210,5 +255,10 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 20,
         marginBottom: 20,
+    },
+    buttonChange: {
+        fontStyle: 'italic',
+        padding: 10,
+        color: 'red',
     },
 });

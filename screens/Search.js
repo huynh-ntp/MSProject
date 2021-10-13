@@ -11,7 +11,7 @@ export default class Search extends Component {
     state = {
         input: '',
         errorInput: '',
-        computers: [],
+        computers: listPC,
         filter: [],
     };
     onChange(e) {
@@ -31,36 +31,36 @@ export default class Search extends Component {
         }
     }
 
-    handleOnPress() {
-        if (!isNaN(this.state.input)) {
-            if (this.state.input > 10000000 && this.state.input < 12000000) {
-                if (this.state.filter.length === 0) {
-                    this.setState({
-                        computers: listPC,
-                    });
-                } else {
-                    var arrShow = [];
-                    var arrAdd = listPC;
-                    this.state.filter.map((f, index) => {
-                        arrAdd.map((c) => {
-                            if (c.CPU.description.includes(f) || c.main.description.includes(f) || c.VGA.description.includes(f) || c.PSU.description.includes(f) || c.ram.description.includes(f) || c.case.description.includes(f) || c.hardDv.description.includes(f) || c.radiators.description.includes(f) || c.CPU.name.includes(f) || c.main.name.includes(f) || c.VGA.name.includes(f) || c.PSU.name.includes(f) || c.ram.name.includes(f) || c.case.name.includes(f) || c.hardDv.name.includes(f) || c.radiators.name.includes(f)) {
-                                if (!arrShow.includes(c)) {
-                                    arrShow.push(c);
-                                }
-                            }
-                        });
-                        if (index < this.state.filter.length - 1) {
-                            arrAdd = arrShow;
-                            arrShow = [];
-                        }
-                    });
-                    this.setState({
-                        computers: arrShow,
-                    });
-                }
-            }
-        }
-    }
+    //     handleOnPress() {
+    //         if (!isNaN(this.state.input)) {
+    //             if (this.state.input > 10000000 && this.state.input < 12000000) {
+    //                 if (this.state.filter.length === 0) {
+    //                     this.setState({
+    //                         computers: listPC,
+    //                     });
+    //                 } else {
+    //                     var arrShow = [];
+    //                     var arrAdd = listPC;
+    //                     this.state.filter.map((f, index) => {
+    //                         arrAdd.map((c) => {
+    //                             if (c.CPU.description.includes(f) || c.main.description.includes(f) || c.VGA.description.includes(f) || c.PSU.description.includes(f) || c.ram.description.includes(f) || c.case.description.includes(f) || c.hardDv.description.includes(f) || c.radiators.description.includes(f) || c.CPU.name.includes(f) || c.main.name.includes(f) || c.VGA.name.includes(f) || c.PSU.name.includes(f) || c.ram.name.includes(f) || c.case.name.includes(f) || c.hardDv.name.includes(f) || c.radiators.name.includes(f)) {
+    //                                 if (!arrShow.includes(c)) {
+    //                                     arrShow.push(c);
+    //                                 }
+    //                             }
+    //                         });
+    //                         if (index < this.state.filter.length - 1) {
+    //                             arrAdd = arrShow;
+    //                             arrShow = [];
+    //                         }
+    //                     });
+    //                     this.setState({
+    //                         computers: arrShow,
+    //                     });
+    //                 }
+    //             }
+    //         }
+    //     }
     toDetail(pc) {
         this.props.navigation.navigate('Detail', {
             pc: { pc },
@@ -127,7 +127,7 @@ export default class Search extends Component {
                 arrShow = [];
             }
         });
-        if (arr.length === 0 && this.state.input > 10000000 && this.state.input < 12000000) {
+        if (arr.length === 0) {
             this.setState({
                 computers: listPC,
             });
@@ -138,59 +138,11 @@ export default class Search extends Component {
         }
     }
     render() {
-        if (this.state.computers.length === 0) {
-            return (
-                <ScrollView style={styles.container}>
-                    <LinearGradient style={styles.linearStyle} colors={['rgba(0,164,109,0.4)', 'transparent']}>
-                        <View style={styles.search}>
-                            <TextInput onChangeText={(text) => this.onChange(text)} value={this.state.input} placeholder="Số tiền bạn có" placeholderTextColor="black" style={styles.textInput}></TextInput>
-                            <TouchableOpacity onPress={() => this.handleOnPress()} activeOpacity="0.5">
-                                <Image style={styles.searchImage} source={require('../assets/search.png')} />
-                            </TouchableOpacity>
-                        </View>
-                        <Text style={styles.errorInput}>{this.state.errorInput}</Text>
-                        <ScrollView horizontal showsHorizontalScrollIndicator style={{ marginTop: -15 }}>
-                            {this.state.filter.map((f) => (
-                                <TouchableOpacity key={f} onPress={() => this.deleteFilter(f)} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10, marginBottom: 5 }}>
-                                    <Text style={{ color: '#FFF' }}>
-                                        {f} <Text style={{ color: 'red' }}> x</Text>
-                                    </Text>
-                                </TouchableOpacity>
-                            ))}
-                        </ScrollView>
-                        {this.filter()}
-                        <Text
-                            style={{
-                                marginLeft: 20,
-                                marginTop: 15,
-                                //   color: '#585a61',
-                                fontSize: 18,
-                                fontWeight: 'bold',
-                            }}
-                        >
-                            Top Build
-                        </Text>
-                        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginTop: 25, marginBottom: 30 }}>
-                            <TopBuild detail={() => this.toDetail(pc3)} pc={pc3} />
-                            <TopBuild detail={() => this.toDetail(pc4)} pc={pc4} />
-                            <TopBuild detail={() => this.toDetail(pc5)} pc={pc5} />
-                        </ScrollView>
-                    </LinearGradient>
-                </ScrollView>
-            );
-        }
         return (
             //   <SafeAreaView style={styles.container}>
             <ScrollView style={styles.container}>
                 <LinearGradient style={styles.linearStyle} colors={['rgba(0,164,109,0.4)', 'transparent']}>
-                    <View style={styles.search}>
-                        <TextInput onChangeText={(text) => this.onChange(text)} value={this.state.input} placeholder="Số tiền bạn có" placeholderTextColor="black" style={styles.textInput}></TextInput>
-                        <TouchableOpacity activeOpacity="0.5" onPress={() => this.handleOnPress()}>
-                            <Image style={styles.searchImage} source={require('../assets/search.png')} />
-                        </TouchableOpacity>
-                    </View>
-                    <Text style={styles.errorInput}>{this.state.errorInput}</Text>
-                    <ScrollView horizontal showsHorizontalScrollIndicator style={{ marginTop: -15 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator style={{ marginTop: 15 }}>
                         {this.state.filter.map((f) => (
                             <TouchableOpacity key={f} onPress={() => this.deleteFilter(f)} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10, marginBottom: 5 }}>
                                 <Text style={{ color: '#FFF' }}>
@@ -265,32 +217,7 @@ export default class Search extends Component {
                     </TouchableOpacity>
                 </ScrollView>
             </View>
-            <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
-                <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Nguồn:</Text>
-                <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={() => this.addFilter('750W')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>750W</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('650W')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>650W</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('500W')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>500W</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('1200W')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>800W</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('1200W')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>1200W</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('1200W')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>900W</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('1200W')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>330W</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            </View>
+
             <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
                 <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>CPU:</Text>
                 <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
