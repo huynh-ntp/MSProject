@@ -133,10 +133,10 @@ export const VGAList = [
 export const pc1 = {
     id: 1,
     CPU: {
-        name: ' Intel Core i5-9400F',
-        description: 'Bộ vi xử lý - CPU Intel Core i5-9400F (2.9 Upto 4.1GHz/ 9MB /Socket 1151)--Hàng Chính Hãng',
+        name: ' Intel Core i3-9400F',
+        description: 'Bộ vi xử lý - CPU Intel Core i3-9400F (2.9 Upto 4.1GHz/ 9MB /Socket 1151)--Hàng Chính Hãng',
         price: 3500000,
-        image: require('../assets/corei5.jpg'),
+        image: require('../assets/coreChange3.webp'),
     },
     main: {
         name: 'ASUS PRIME H510M-A',

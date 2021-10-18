@@ -14,12 +14,21 @@ export function Payment({ navigation }) {
             .then((response) => response.json())
             .then((data) => {
                 let p = data;
+                let p1 = p[0];
+                p1.name = '';
+                p.push(p1);
+                setprovince(p.length);
                 setprovinces(p);
                 let d = p[0].districts;
+                let d2 = d[0];
+                d2.name = '';
                 setdistricts(d);
                 let w = d[0].wards;
+                let w2 = w[0];
+                w2.name = '';
                 setwards(w);
-                //  setwards(districts[0].wards);
+                setward(w.length);
+                setwards(d[0].wards);
             });
     }, []);
 
@@ -49,13 +58,7 @@ export function Payment({ navigation }) {
                 </View>
                 <View style={{ flexDirection: 'row', marginTop: 5 }}>
                     <Text style={{ width: '30%', marginTop: 10 }}>Tỉnh, Tp:</Text>
-                    <Picker
-                        onValueChange={(itemValue, itemIndex) => {
-                            changeProvince(itemValue);
-                        }}
-                        selectedValue={province}
-                        style={{ height: 40, width: '70%' }}
-                    >
+                    <Picker onValueChange={(itemValue, itemIndex) => changeProvince(itemValue)} selectedValue={province} style={{ height: 40, width: '70%' }} itemStyle={{ backgroundColor: 'red', color: 'blue' }}>
                         {provinces.map((p, index) => (
                             <Picker.Item key={p.code} value={index} label={p.name}></Picker.Item>
                         ))}
@@ -63,13 +66,7 @@ export function Payment({ navigation }) {
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={{ width: '30%', marginTop: 10 }}>Huyện:</Text>
-                    <Picker
-                        selectedValue={district}
-                        onValueChange={(value, index) => {
-                            changeDistrict(value);
-                        }}
-                        style={{ height: 40, width: '70%' }}
-                    >
+                    <Picker selectedValue={district} onValueChange={(value, index) => changeDistrict(value)} style={{ height: 40, width: '70%' }}>
                         {districts.map((p, index) => (
                             <Picker.Item key={p.code} value={index} label={p.name}></Picker.Item>
                         ))}

@@ -46,9 +46,6 @@ export function GameScreen1({ navigation }) {
                 <Text style={{ padding: 15, fontSize: 15 }}>Uư tiên sự mượt mà </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs4)}>
-                <Text style={{ padding: 15, fontSize: 15 }}>Cả 2 cái trên </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs4)}>
                 <Text style={{ padding: 15, fontSize: 16 }}>Cân bằng</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setqsShow(qs2)}>
@@ -77,42 +74,13 @@ export function GameScreen1({ navigation }) {
             </TouchableOpacity>
         </View>
     );
-    //     const qs5 = () => (
-    //         <View style={styles.container}>
-    //             <Text style={styles.qs}>Dung lượng trung bình một game?</Text>
-    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
-    //                 <Text style={{ padding: 15, fontSize: 16 }}>Dưới 5GB</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
-    //                 <Text style={{ padding: 15, fontSize: 16 }}>~10GB</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
-    //                 <Text style={{ padding: 15, fontSize: 15 }}>~20GB</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
-    //                 <Text style={{ padding: 15, fontSize: 15 }}>~30GB</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
-    //                 <Text style={{ padding: 15, fontSize: 16 }}>~40GB</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
-    //                 <Text style={{ padding: 15, fontSize: 16 }}>~50GB</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
-    //                 <Text style={{ padding: 15, fontSize: 16 }}>Trên 50GB</Text>
-    //             </TouchableOpacity>
-    //             <TouchableOpacity onPress={() => setqsShow(qs4)}>
-    //                 <Image style={styles.back} source={require('../assets/back.png')} />
-    //             </TouchableOpacity>
-    //         </View>
-    //     );
 
     const [price, setprice] = useState('');
     const [errorInput, setErrorInput] = useState('');
     const [isEnd, setIsEnd] = useState(false);
     const changePrice = (value) => {
         if (isNaN(value)) {
-            setErrorInput('Please input a number!');
+            setErrorInput('Xin nhập số.2323');
             setTimeout(() => {
                 setErrorInput('');
             }, 2000);
@@ -123,18 +91,44 @@ export function GameScreen1({ navigation }) {
     const gotoSearch = () => {
         if (price !== '') {
             navigation.navigate('Search');
+        } else {
+            setErrorInput('Nhập giá trước khi tìm kiếm.');
+            setTimeout(() => {
+                setErrorInput('');
+            }, 2000);
         }
     };
     const final = () => (
         <View style={styles.container}>
-            <TextInput onChangeText={(value) => changePrice(value)} value={price} style={styles.inputPrice} placeholderTextColor="#000000" placeholder="Số tiền bạn có"></TextInput>
-            <Text style={styles.errorInput}>{errorInput}</Text>
-            <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity onPress={() => setIsEnd(false)} style={{ marginRight: 120 }}>
-                    <Image style={{ width: 60, height: 60 }} source={require('../assets/back.png')}></Image>
-                </TouchableOpacity>
+            <View
+                style={{
+                    width: '90%',
+                    alignItems: 'center',
+                    backgroundColor: '#FFF',
+                    shadowColor: '#000',
+                    shadowOffset: {
+                        width: 0,
+                        height: 12,
+                    },
+                    shadowOpacity: 0.58,
+                    shadowRadius: 16.0,
+                    elevation: 15,
+                    borderRadius: 10,
+                }}
+            >
+                <Text style={{ marginBottom: 20, marginTop: 30, fontSize: 20 }}>Nhập số tiền bạn có (VNĐ)</Text>
+                <View style={{ flexDirection: 'row', width: '100%' }}>
+                    <Text style={{ marginTop: 15, marginRight: 10, marginLeft: 10 }}>Số tiền:</Text>
+                    <TextInput onChangeText={(value) => changePrice(value)} value={price} style={styles.inputPrice}></TextInput>
+                </View>
+                <Text style={styles.errorInput}>{errorInput}</Text>
                 <TouchableOpacity onPress={() => gotoSearch()}>
-                    <Image style={{ width: 60, height: 60 }} source={require('../assets/next.png')}></Image>
+                    <Text style={styles.button}>{`Tìm kiếm gợi ý `}</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+                <TouchableOpacity onPress={() => setIsEnd(false)}>
+                    <Image style={{ width: 60, height: 60 }} source={require('../assets/back.png')}></Image>
                 </TouchableOpacity>
             </View>
         </View>
@@ -178,9 +172,10 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     inputPrice: {
-        padding: 15,
-        width: '80%',
-        backgroundColor: '#92DDD0',
+        padding: 10,
+        width: '75%',
+        //    backgroundColor: '#92DDD0',
+        backgroundColor: '#FFF',
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -189,10 +184,26 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.58,
         shadowRadius: 16.0,
         elevation: 15,
-        borderRadius: 60,
+        borderRadius: 10,
     },
     errorInput: {
         color: 'red',
         marginTop: 5,
+    },
+
+    button: {
+        backgroundColor: '#92DDD0',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginBottom: 20,
+        borderRadius: 60,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.0,
+        elevation: 15,
     },
 });

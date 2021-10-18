@@ -10,6 +10,7 @@ import { Detail } from './screens/Detail';
 import { GameScreen1 } from './screens/GameScreen1';
 import { Payment } from './screens/Payment';
 import { Thanks } from './screens/Thanks';
+import { Login } from './screens/Login';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -61,10 +62,11 @@ const BottomTabNavigation = () => {
 
 const AppNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Login">
+            <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}></Stack.Screen>
             <Stack.Screen name="Main" component={BottomTabNavigation} options={{ headerShown: false }}></Stack.Screen>
             <Stack.Screen name="Search" options={{ headerTitle: 'Cấu hình đề nghị' }} component={Search}></Stack.Screen>
-            <Stack.Screen name="GameScreen1" options={{ headerTitle: 'Thu thập yêu cầu' }} component={GameScreen1}></Stack.Screen>
+            <Stack.Screen name="GameScreen1" options={{ headerTitle: '' }} component={GameScreen1}></Stack.Screen>
             <Stack.Screen name="RenderScreen" options={{ headerTitle: 'Render video' }} component={RenderScreen}></Stack.Screen>
             <Stack.Screen name="Payment" options={{ headerTitle: 'Xác nhận thông tin giao hàng' }} component={Payment}></Stack.Screen>
             <Stack.Screen name="Detail" options={{ headerTitle: 'Chi tiết bộ máy' }} component={Detail}></Stack.Screen>

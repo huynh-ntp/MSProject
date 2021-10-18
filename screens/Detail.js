@@ -86,43 +86,54 @@ export function Detail({ navigation, route }) {
                     <Text style={styles.title}>
                         Tên: <Text style={styles.description}>{name}</Text>
                     </Text>
+
                     <Text style={styles.title}>
                         Mô tả: <Text style={styles.description}>{description}</Text>
                     </Text>
                     <Text style={styles.title}>
-                        Giá: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)} </Text>
+                        Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)} </Text>
                     </Text>
-                    <Text style={styles.buttonChange}>Click để thay đổi</Text>
+                    <Text style={styles.buttonChange}>Click để đổi linh kiện</Text>
                 </View>
             </TouchableOpacity>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ height: 200, marginTop: 30 }}>
                 <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(CPU, 'CPU')}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>CPU</Text>
                     <Image source={CPU.image} style={styles.image} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(main, 'main')}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Main board</Text>
                     <Image source={main.image} style={styles.image} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(VGA, 'VGA')}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Card màn hình</Text>
                     <Image source={VGA.image} style={styles.image} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(PSU, 'PSU')}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Nguồn</Text>
                     <Image source={PSU.image} style={styles.image} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(ram, 'ram')}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Ram</Text>
                     <Image source={ram.image} style={styles.image} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(casePC, 'casePC')}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Case</Text>
                     <Image source={casePC.image} style={styles.image} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(hardDv, 'hardDv')}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Ổ cứng</Text>
                     <Image source={hardDv.image} style={styles.image} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(radiators, 'radiators')}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Tản nhiệt</Text>
                     <Image source={radiators.image} style={styles.image} />
                 </TouchableOpacity>
             </ScrollView>
-            <View style={{ width: '100%', height: 180, alignItems: 'flex-end' }}>
-                <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>Tổng giá: {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)}</Text>
+            <View style={{ width: '100%', height: 180, alignItems: 'flex-end', paddingTop: 50 }}>
+                <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>
+                    Tổng giá: <Text style={{ color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)}</Text>{' '}
+                </Text>
                 <TouchableOpacity
                     onPress={() => {
                         navigation.navigate('Payment');
@@ -187,8 +198,8 @@ const styles = StyleSheet.create({
         fontWeight: '100',
     },
     image: {
-        width: 200,
-        height: 200,
+        width: 170,
+        height: 170,
         marginLeft: 20,
         marginRight: 20,
         paddingVertical: 20,
@@ -207,6 +218,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.58,
         shadowRadius: 16.0,
         elevation: 21,
+        alignItems: 'flex-start',
     },
     button: {
         paddingHorizontal: 20,

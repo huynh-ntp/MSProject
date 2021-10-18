@@ -26,7 +26,7 @@ export default class Computer extends Component {
                         PSU: <Text style={styles.description}>{pc.PSU.name}</Text>
                     </Text>
                     <Text style={styles.title}>
-                        Giá: <Text style={styles.description}>{totalStr}</Text>
+                        Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr}</Text>
                     </Text>
                     <Text style={styles.button}>Detail</Text>
                 </View>
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
         width: 90,
         textAlign: 'center',
         borderRadius: 50,
-        marginLeft: 50,
+        marginLeft: 100,
         marginTop: 10,
+        color: '#FFF',
     },
 });

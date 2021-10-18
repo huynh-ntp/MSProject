@@ -15,8 +15,6 @@ export function Thanks({ navigation }) {
                 <Image style={styles.check} source={require('../assets/check.png')}></Image>
                 <Text>Cảm ơn quý khách!</Text>
                 <Text>Nhân viên sẽ liên hệ sớm để xác nhận đơn hàng.</Text>
-                <Text>Hàng sẽ được nhân viên đem đến tận nơi để quý </Text>
-                <Text>khách kiểm tra và tiến hành lắp ráp.</Text>
                 <TouchableOpacity onPress={() => resetAction()}>
                     <Text style={styles.ok}>OK</Text>
                 </TouchableOpacity>

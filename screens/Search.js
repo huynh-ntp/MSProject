@@ -151,7 +151,7 @@ export default class Search extends Component {
                             </TouchableOpacity>
                         ))}
                     </ScrollView>
-                    {this.filter()}
+                    {/* {this.filter()} */}
                     <View style={{ marginTop: 30 }}>
                         {this.state.computers.map((pc) => (
                             <Computer detail={() => this.toDetail(pc)} key={pc.id} pc={pc} />
@@ -162,161 +162,161 @@ export default class Search extends Component {
             //   </SafeAreaView>
         );
     }
-    filter = () => (
-        <View style={styles.filter}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', paddingHorizontal: 20, paddingVertical: 10 }}>Bộ lọc</Text>
-            <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
-                <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Thương hiệu:</Text>
-                <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={() => this.addFilter('Intel')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Intel</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('ASUS')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>ASUS</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('GIGABYTE')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>GIGABYTE</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('MSI')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>MSI</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('ACER')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>ACER</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Apple')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Apple</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Kingston')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Kingston</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('MATREXX')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>MATREXX</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('XIGMATEK')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>XIGMATEK</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            </View>
-            <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
-                <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Mainboard:</Text>
-                <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={() => this.addFilter('KHT')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>KHT</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('AORUS')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>AORUS</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('ROG')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>ROG</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('GAMING')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>GAMING</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('MEG')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>MEG</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            </View>
+    //     filter = () => (
+    //         <View style={styles.filter}>
+    //             <Text style={{ fontSize: 20, fontWeight: 'bold', paddingHorizontal: 20, paddingVertical: 10 }}>Bộ lọc</Text>
+    //             <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
+    //                 <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Thương hiệu:</Text>
+    //                 <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Intel')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Intel</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('ASUS')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>ASUS</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('GIGABYTE')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>GIGABYTE</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('MSI')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>MSI</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('ACER')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>ACER</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Apple')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Apple</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Kingston')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Kingston</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('MATREXX')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>MATREXX</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('XIGMATEK')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>XIGMATEK</Text>
+    //                     </TouchableOpacity>
+    //                 </ScrollView>
+    //             </View>
+    //             <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
+    //                 <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Mainboard:</Text>
+    //                 <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
+    //                     <TouchableOpacity onPress={() => this.addFilter('KHT')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>KHT</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('AORUS')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>AORUS</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('ROG')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>ROG</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('GAMING')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>GAMING</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('MEG')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>MEG</Text>
+    //                     </TouchableOpacity>
+    //                 </ScrollView>
+    //             </View>
 
-            <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
-                <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>CPU:</Text>
-                <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={() => this.addFilter('Core i5')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Core i5</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Core i3')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Core i3</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Core i7')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Core i7</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Core i9')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Core i9</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            </View>
-            <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
-                <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Ram:</Text>
-                <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={() => this.addFilter('16GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>16GB</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('8GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>8GB</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('4GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>4GB</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('DDR3')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>DDR3</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('DDR4')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>DDR4</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('32GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>32GB</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            </View>
-            <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
-                <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Case:</Text>
-                <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={() => this.addFilter('Đỏ')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Đỏ</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Đen')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Đen</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Nhám')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Nhám</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Trắng')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Trắng</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('Xanh')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Xanh</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            </View>
-            <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
-                <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Ổ cứng:</Text>
-                <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={() => this.addFilter('HDD')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>HDD</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('SSD')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>SSD</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('128GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>128GB</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('512GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>512GB</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('256GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>256GB</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('1TB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>1TB</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('2TB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>2TB</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            </View>
-            <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
-                <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Tản nhiệt:</Text>
-                <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={() => this.addFilter('nước')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Tản nhiệt nước AIO</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.addFilter('quạt')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
-                        <Text style={{ color: '#FFF' }}>Quạt tản nhiệt</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            </View>
-        </View>
-    );
+    //             <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
+    //                 <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>CPU:</Text>
+    //                 <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Core i5')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Core i5</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Core i3')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Core i3</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Core i7')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Core i7</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Core i9')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Core i9</Text>
+    //                     </TouchableOpacity>
+    //                 </ScrollView>
+    //             </View>
+    //             <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
+    //                 <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Ram:</Text>
+    //                 <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
+    //                     <TouchableOpacity onPress={() => this.addFilter('16GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>16GB</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('8GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>8GB</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('4GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>4GB</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('DDR3')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>DDR3</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('DDR4')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>DDR4</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('32GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>32GB</Text>
+    //                     </TouchableOpacity>
+    //                 </ScrollView>
+    //             </View>
+    //             <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
+    //                 <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Case:</Text>
+    //                 <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Đỏ')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Đỏ</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Đen')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Đen</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Nhám')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Nhám</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Trắng')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Trắng</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('Xanh')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Xanh</Text>
+    //                     </TouchableOpacity>
+    //                 </ScrollView>
+    //             </View>
+    //             <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
+    //                 <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Ổ cứng:</Text>
+    //                 <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
+    //                     <TouchableOpacity onPress={() => this.addFilter('HDD')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>HDD</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('SSD')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>SSD</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('128GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>128GB</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('512GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>512GB</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('256GB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>256GB</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('1TB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>1TB</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('2TB')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>2TB</Text>
+    //                     </TouchableOpacity>
+    //                 </ScrollView>
+    //             </View>
+    //             <View style={{ width: '100%', height: 'auto', flexDirection: 'row', marginBottom: 10 }}>
+    //                 <Text style={{ marginLeft: 15, width: '30%', marginTop: 3, fontWeight: 'bold' }}>Tản nhiệt:</Text>
+    //                 <ScrollView horizontal style={{ width: '60%', height: 'auto' }} showsHorizontalScrollIndicator={false}>
+    //                     <TouchableOpacity onPress={() => this.addFilter('nước')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Tản nhiệt nước AIO</Text>
+    //                     </TouchableOpacity>
+    //                     <TouchableOpacity onPress={() => this.addFilter('quạt')} style={{ paddingVertical: 5, paddingHorizontal: 5, backgroundColor: 'gray', borderRadius: 5, marginRight: 10 }}>
+    //                         <Text style={{ color: '#FFF' }}>Quạt tản nhiệt</Text>
+    //                     </TouchableOpacity>
+    //                 </ScrollView>
+    //             </View>
+    //         </View>
+    //     );
 }
 
 const styles = StyleSheet.create({
