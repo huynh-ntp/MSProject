@@ -157,8 +157,8 @@ export const pc1 = {
         image: require('../assets/psu1.jpg'),
     },
     ram: {
-        name: 'Kingston FURY Beast DDR4 RGB ',
-        description: 'Bộ nhớ Kingston FURY Beast DDR4 RGB',
+        name: 'Kingston FURY Beast DDR4 RGB 8GB',
+        description: 'Bộ nhớ Kingston FURY Beast DDR4 RGB 8GB',
         price: 900000,
         image: require('../assets/ram1.webp'),
     },

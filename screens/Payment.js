@@ -49,8 +49,8 @@ export function Payment({ navigation }) {
             <View style={styles.paymentBox}>
                 <Text style={{ color: 'green', fontSize: 20, marginBottom: 30 }}>Thông tin giao hàng</Text>
                 <View style={{ flexDirection: 'row', marginBottom: 10 }}>
-                    <Text style={{ width: '30%', marginTop: 5 }}>Họ tên:</Text>
-                    <TextInput style={styles.inputField}></TextInput>
+                    <Text style={{ width: '30%', marginTop: 5 }}>Họ tên: </Text>
+                    <Text style={{ width: '70%' }}>Phi Huỳnh</Text>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={{ width: '30%', marginTop: 5 }}>Số điện thoại:</Text>

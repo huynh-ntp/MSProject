@@ -77,106 +77,182 @@ export function Detail({ navigation, route }) {
     };
 
     return (
-        <SafeAreaView style={{ alignItems: 'center', backgroundColor: '#92DDD0', flex: 1 }}>
-            <TouchableOpacity activeOpacity="0.5" style={styles.touchAble} onPress={() => changeAccessory()}>
-                <View style={{ width: '40%', height: '100%' }}>
-                    <Image source={image} style={{ width: '100%', height: '80%', marginTop: '10%' }} />
+        <ScrollView style={{ backgroundColor: '#92DDD0' }}>
+            <View style={{ alignItems: 'center', backgroundColor: '#92DDD0', flex: 1, marginTop: 20 }}>
+                <View style={{ width: '95%', height: 'auto', padding: 20, backgroundColor: '#FFF', borderRadius: 20, marginBottom: 30 }}>
+                    <Text style={{ marginLeft: '40%', fontSize: 20, marginBottom: 10, fontWeight: 'bold' }}>Tổng quan</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>CPU:</Text>
+                        <Text style={{ width: '70%' }}>{CPU.name}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>Mainboard:</Text>
+                        <Text style={{ width: '70%' }}>{main.name}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>VGA:</Text>
+                        <Text style={{ width: '70%' }}>{VGA.name}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>Nguồn:</Text>
+                        <Text style={{ width: '70%' }}>{PSU.name}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>Ram:</Text>
+                        <Text style={{ width: '70%' }}>{ram.description}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>Case:</Text>
+                        <Text style={{ width: '70%' }}>{casePC.description}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>Ổ cứng:</Text>
+                        <Text style={{ width: '70%' }}>{hardDv.description}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>Ổ cứng:</Text>
+                        <Text style={{ width: '70%' }}>{hardDv.description}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ width: '30%', fontWeight: 'bold' }}>Tản nhiệt:</Text>
+                        <Text style={{ width: '70%' }}>{radiators.description}</Text>
+                    </View>
                 </View>
-                <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                    <Text style={styles.title}>
-                        Tên: <Text style={styles.description}>{name}</Text>
-                    </Text>
-
-                    <Text style={styles.title}>
-                        Mô tả: <Text style={styles.description}>{description}</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)} </Text>
-                    </Text>
-                    <Text style={styles.buttonChange}>Click để đổi linh kiện</Text>
-                </View>
-            </TouchableOpacity>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ height: 200, marginTop: 30 }}>
-                <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(CPU, 'CPU')}>
-                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>CPU</Text>
-                    <Image source={CPU.image} style={styles.image} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(main, 'main')}>
-                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Main board</Text>
-                    <Image source={main.image} style={styles.image} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(VGA, 'VGA')}>
-                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Card màn hình</Text>
-                    <Image source={VGA.image} style={styles.image} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(PSU, 'PSU')}>
-                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Nguồn</Text>
-                    <Image source={PSU.image} style={styles.image} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(ram, 'ram')}>
-                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Ram</Text>
-                    <Image source={ram.image} style={styles.image} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(casePC, 'casePC')}>
-                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Case</Text>
-                    <Image source={casePC.image} style={styles.image} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(hardDv, 'hardDv')}>
-                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Ổ cứng</Text>
-                    <Image source={hardDv.image} style={styles.image} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(radiators, 'radiators')}>
-                    <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Tản nhiệt</Text>
-                    <Image source={radiators.image} style={styles.image} />
-                </TouchableOpacity>
-            </ScrollView>
-            <View style={{ width: '100%', height: 180, alignItems: 'flex-end', paddingTop: 50 }}>
-                <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>
-                    Tổng giá: <Text style={{ color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)}</Text>{' '}
-                </Text>
-                <TouchableOpacity
-                    onPress={() => {
-                        navigation.navigate('Payment');
-                    }}
-                    style={{ marginEnd: 20, marginTop: 10 }}
-                >
-                    <Text style={styles.button}>Xác nhận giao hàng</Text>
-                </TouchableOpacity>
-            </View>
-            <Modal style={styles.modal} transparent visible={modalVisible} animationType="slide">
-                <View style={styles.modal}>
-                    <TouchableOpacity onPress={() => setModalVisible(false)} style={{ alignItems: 'flex-end', paddingBottom: 10 }}>
-                        <Text style={styles.closeButton}>Close</Text>
+                <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{ height: 200 }}>
+                    <View style={styles.touchAble}>
+                        <View style={{ width: '40%', height: '100%', borderRadius: 30 }}>
+                            <Image source={CPU.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
+                        </View>
+                        <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
+                            <Text style={styles.title}>
+                                Tên: <Text style={styles.description}>{CPU.name}</Text>
+                            </Text>
+                            <Text style={styles.title}>
+                                Mô tả: <Text style={styles.description}>{CPU.description}</Text>
+                            </Text>
+                            <Text style={styles.title}>
+                                Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(CPU.price)} </Text>
+                            </Text>
+                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
+                        </View>
+                    </View>
+                    <View style={styles.touchAble}>
+                        <View style={{ width: '40%', height: '100%', borderRadius: 30 }}>
+                            <Image source={main.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
+                        </View>
+                        <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
+                            <Text style={styles.title}>
+                                Tên: <Text style={styles.description}>{main.name}</Text>
+                            </Text>
+                            <Text style={styles.title}>
+                                Mô tả: <Text style={styles.description}>{main.description}</Text>
+                            </Text>
+                            <Text style={styles.title}>
+                                Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(main.price)} </Text>
+                            </Text>
+                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
+                        </View>
+                    </View>
+                    <View style={styles.touchAble}>
+                        <View style={{ width: '40%', height: '100%', borderRadius: 30 }}>
+                            <Image source={VGA.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
+                        </View>
+                        <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
+                            <Text style={styles.title}>
+                                Tên: <Text style={styles.description}>{VGA.name}</Text>
+                            </Text>
+                            <Text style={styles.title}>
+                                Mô tả: <Text style={styles.description}>{VGA.description}</Text>
+                            </Text>
+                            <Text style={styles.title}>
+                                Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(VGA.price)} </Text>
+                            </Text>
+                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
+                        </View>
+                    </View>
+                </ScrollView>
+                {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ height: 200, marginTop: 30 }}>
+                    <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(CPU, 'CPU')}>
+                        <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>CPU</Text>
+                        <Image source={CPU.image} style={styles.image} />
                     </TouchableOpacity>
-                    <ScrollView>
-                        {listChange.map((access) => (
-                            <TouchableOpacity key={access.price} activeOpacity="0.5" style={styles.touchAble3} onPress={() => handleChangeAccessory(access)}>
-                                <View style={{ width: '40%', height: '100%' }}>
-                                    <Image source={access.image} style={{ width: '80%', height: '80%', marginTop: '10%' }} />
-                                </View>
-                                <View style={{ width: '60%', height: '100%', marginTop: '5%' }}>
-                                    <Text style={styles.title}>
-                                        Tên: <Text style={styles.description}>{access.name}</Text>
-                                    </Text>
-                                    <Text style={styles.title}>
-                                        Mô tả: <Text style={styles.description}>{access.description}</Text>
-                                    </Text>
-                                    <Text style={styles.title}>
-                                        Giá: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(access.price)} </Text>
-                                    </Text>
-                                </View>
-                            </TouchableOpacity>
-                        ))}
-                    </ScrollView>
+                    <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(main, 'main')}>
+                        <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Main board</Text>
+                        <Image source={main.image} style={styles.image} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(VGA, 'VGA')}>
+                        <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Card màn hình</Text>
+                        <Image source={VGA.image} style={styles.image} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(PSU, 'PSU')}>
+                        <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Nguồn</Text>
+                        <Image source={PSU.image} style={styles.image} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(ram, 'ram')}>
+                        <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Ram</Text>
+                        <Image source={ram.image} style={styles.image} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(casePC, 'casePC')}>
+                        <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Case</Text>
+                        <Image source={casePC.image} style={styles.image} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(hardDv, 'hardDv')}>
+                        <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Ổ cứng</Text>
+                        <Image source={hardDv.image} style={styles.image} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touchAble2} onPress={() => touchChangeDetail(radiators, 'radiators')}>
+                        <Text style={{ fontWeight: 'bold', marginLeft: 20, marginTop: 5 }}>Tản nhiệt</Text>
+                        <Image source={radiators.image} style={styles.image} />
+                    </TouchableOpacity>
+                </ScrollView> */}
+                <View style={{ width: '100%', height: 180, alignItems: 'flex-end', paddingTop: 20 }}>
+                    <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>
+                        Tổng giá: <Text style={{ color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)}</Text>{' '}
+                    </Text>
+                    <TouchableOpacity
+                        onPress={() => {
+                            navigation.navigate('Payment');
+                        }}
+                        style={{ marginEnd: 20, marginTop: 10 }}
+                    >
+                        <Text style={styles.button}>Đi đến giao hàng</Text>
+                    </TouchableOpacity>
                 </View>
-            </Modal>
-        </SafeAreaView>
+                <Modal style={styles.modal} transparent visible={modalVisible} animationType="slide">
+                    <View style={styles.modal}>
+                        <TouchableOpacity onPress={() => setModalVisible(false)} style={{ alignItems: 'flex-end', paddingBottom: 10 }}>
+                            <Text style={styles.closeButton}>Close</Text>
+                        </TouchableOpacity>
+                        <ScrollView>
+                            {listChange.map((access) => (
+                                <TouchableOpacity key={access.price} activeOpacity="0.5" style={styles.touchAble3} onPress={() => handleChangeAccessory(access)}>
+                                    <View style={{ width: '40%', height: '100%' }}>
+                                        <Image source={access.image} style={{ width: '80%', height: '80%', marginTop: '10%' }} />
+                                    </View>
+                                    <View style={{ width: '60%', height: '100%', marginTop: '5%' }}>
+                                        <Text style={styles.title}>
+                                            Tên: <Text style={styles.description}>{access.name}</Text>
+                                        </Text>
+                                        <Text style={styles.title}>
+                                            Mô tả: <Text style={styles.description}>{access.description}</Text>
+                                        </Text>
+                                        <Text style={styles.title}>
+                                            Giá: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(access.price)} </Text>
+                                        </Text>
+                                    </View>
+                                </TouchableOpacity>
+                            ))}
+                        </ScrollView>
+                    </View>
+                </Modal>
+            </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     touchAble: {
-        width: '90%',
+        width: 320,
         height: 200,
         flexDirection: 'row',
         backgroundColor: '#FFF',
@@ -190,6 +266,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.58,
         shadowRadius: 16.0,
         elevation: 21,
+        marginRight: 30,
     },
     title: {
         fontWeight: 'bold',

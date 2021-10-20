@@ -7,7 +7,8 @@ export function Login({ navigation }) {
         <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
             <ImageBackground style={styles.bg} source={require('../assets/loginBg.jpg')}>
                 <Image style={styles.logo} source={require('../assets/logo.png')}></Image>
-                <Text style={{ color: '#FFF', fontSize: 24, fontWeight: 'bold', marginBottom: 80 }}>My Suggest</Text>
+                <Text style={{ color: '#FFF', fontSize: 24, fontWeight: 'bold' }}>My Suggest</Text>
+                <Text style={{ color: '#FFF', fontSize: 18, marginBottom: 80 }}>Suggest you to build PC easy</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('Main')} style={styles.facebook}>
                     <Image style={{ width: 50, height: 50 }} source={require('../assets/facebook.png')}></Image>
                     <View style={{ height: 50, justifyContent: 'center', marginLeft: 45 }}>
