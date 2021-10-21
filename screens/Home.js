@@ -62,7 +62,9 @@ export default function Home({ navigation }) {
                     <TouchableOpacity
                         style={styles.option}
                         onPress={() => {
-                            navigation.navigate('GameScreen1');
+                            navigation.navigate('GameScreen1', {
+                                purpose: 'Game',
+                            });
                         }}
                     >
                         <Image style={styles.categoryImage} source={require('../assets/controller.png')} />
@@ -71,7 +73,9 @@ export default function Home({ navigation }) {
                     <TouchableOpacity
                         style={styles.option}
                         onPress={() => {
-                            navigation.navigate('RenderScreen');
+                            navigation.navigate('RenderScreen', {
+                                purpose: 'Render',
+                            });
                         }}
                     >
                         <Image style={styles.categoryImage} source={require('../assets/vector.png')} />

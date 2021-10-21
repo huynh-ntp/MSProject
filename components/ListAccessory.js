@@ -389,3 +389,107 @@ export const pc5 = {
         image: require('../assets/radiator5.webp'),
     },
 };
+
+export const film1 = {
+    id: 6,
+    CPU: {
+        name: ' INTEL CORE i7 10700K',
+        description: 'INTEL CORE i7 10700K 3.8 up 5.1GHz | 8 CORE | 16 THREAD',
+        price: 5700000,
+        image: require('../assets/cpuFilm1.jpg'),
+    },
+    main: {
+        name: 'MSI Z590-A PRO',
+        description: 'MSI Z590-A PRO, hỗ trợ SSD PCI-e 4.0,đọc ghi vượt trội lên tới 7000 mb/s.',
+        price: 3800000,
+        image: require('../assets/mainFilm1.jpg'),
+    },
+    VGA: {
+        name: 'GIGABYTE GEFORCE GTX 1660 OC 6GB',
+        description: 'Gigabyte GeForce GTX 1660 OC sử dụng cho mình dung lượng bộ nhớ VRAM 6GB GDDR5',
+        price: 1700000,
+        image: require('../assets/vgaFilm1.jpg'),
+    },
+    PSU: {
+        name: 'GIGABYTE P650B 650W 80 PLUS BRONZE ',
+        description: 'Nguồn máy tính GIGABYTE P650B 650W 80 PLUS BRONZE,quạt trục thủy lực 120mm',
+        price: 1700000,
+        image: require('../assets/psuFilm1.jpg'),
+    },
+    ram: {
+        name: 'RAM ADATA XPG Gammix D20 32GB',
+        description: 'RAM ADATA XPG Gammix D20 32GB 3200MHz (2x16G)',
+        price: 3400000,
+        image: require('../assets/ramFilm1.jpg'),
+    },
+    case: {
+        name: 'MSI VAMPIRIC 100L',
+        description: 'Vỏ Case MSI MAG Vampiric 100L ',
+        price: 1900000,
+        image: require('../assets/caseFilm1.jpg'),
+    },
+    hardDv: {
+        name: 'SSD 256G Verico Hawk NVMe PCIe Gen3x2 M.2 2280',
+        description: 'SSD 256G Verico tốc độ đọc là 1600MB/s và tốc độ ghi là 850MB/s',
+        price: 2300000,
+        image: require('../assets/hdFilm1.jpg'),
+    },
+    radiators: {
+        name: 'Thermalright ASSASSIN KING 120',
+        description: 'Tản nhiệt khí cho CPU Thermalright ASSASSIN KING 120 giải pháp tản nhiệt tốt nhất',
+        price: 2900000,
+        image: require('../assets/radiatorFilm1.jpg'),
+    },
+};
+
+export const film2 = {
+    id: 7,
+    CPU: {
+        name: 'Intel i7-10800F',
+        description: 'CPU Intel Core i7 10700F,8 nhân,công nghệ Hyper-Threading  16 luồng',
+        price: 5900000,
+        image: require('../assets/cpuFilm2.jpg'),
+    },
+    main: {
+        name: 'GIGABYTE B560M-AORUS PRO',
+        description: 'GIGABYTE B560M-AORUS PRO với thiết kế dàn phase 12+1.',
+        price: 4100000,
+        image: require('../assets/mainFilm2.jpg'),
+    },
+    VGA: {
+        name: 'LEADTEK WINFAST GTX 1650 4GB GDDR6',
+        description: 'Cạc màn hình LEADTEK WINFAST GTX 1650 4GB GDDR6 sự nâng cấp cho trải nghiệm hoàn hảo',
+        price: 1500000,
+        image: require('../assets/vgaFilm2.jpg'),
+    },
+    PSU: {
+        name: 'SILVERSTONE VIVA 550 550W 80 PLUS BRONZE ',
+        description: 'Nguồn cấp điện SILVERSTONE VIVA 550 550W 80 PLUS BRONZE',
+        price: 1900000,
+        image: require('../assets/psuFilm2.jpg'),
+    },
+    ram: {
+        name: 'RAM ADATA XPG Gammix D20 16GB 3200MHz (1x16G)',
+        description: 'RAM ADATA XPG Gammix D20 16GB 3200MHz (1x16G)',
+        price: 3200000,
+        image: require('../assets/ramFilm2.jpg'),
+    },
+    case: {
+        name: 'Vỏ máy tính MSI MAG SHIELD 110R',
+        description: 'Vỏ máy tính MSI MAG SHIELD 110R',
+        price: 1500000,
+        image: require('../assets/caseFilm2.jpg'),
+    },
+    hardDv: {
+        name: 'GIGABYTE SSD 240G SATA III',
+        description: 'GIGABYTE SSD 240G SATA III tốc độ đọc là 1600MB/s và tốc độ ghi là 850MB/s',
+        price: 2100000,
+        image: require('../assets/hdFilm2.jpg'),
+    },
+    radiators: {
+        name: 'Thermalright ASSASSIN KING 120',
+        description: 'Tản nhiệt khí cho CPU Thermalright ASSASSIN KING 120 giải pháp tản nhiệt tốt nhất',
+        price: 2900000,
+        image: require('../assets/radiatorFilm1.jpg'),
+    },
+};

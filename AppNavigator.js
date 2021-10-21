@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import Home from './screens/Home';
-import Search from './screens/Search';
+import { Search } from './screens/Search';
 import Profile from './screens/Profile';
 import { Image } from 'react-native';
 import { RenderScreen } from './screens/RenderScreen';
@@ -11,6 +11,9 @@ import { GameScreen1 } from './screens/GameScreen1';
 import { Payment } from './screens/Payment';
 import { Thanks } from './screens/Thanks';
 import { Login } from './screens/Login';
+import { ShippingInfo } from './screens/ShippingInfo';
+import HistoryBuild from './screens/HistoryBuild';
+import { HisDetail } from './screens/HisDetail';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -69,8 +72,11 @@ const AppNavigator = () => {
             <Stack.Screen name="GameScreen1" options={{ headerTitle: '' }} component={GameScreen1}></Stack.Screen>
             <Stack.Screen name="RenderScreen" options={{ headerTitle: 'Render video' }} component={RenderScreen}></Stack.Screen>
             <Stack.Screen name="Payment" options={{ headerTitle: 'Xác nhận thông tin giao hàng' }} component={Payment}></Stack.Screen>
-            <Stack.Screen name="Detail" options={{ headerTitle: 'Chi tiết bộ máy' }} component={Detail}></Stack.Screen>
+            <Stack.Screen name="Detail" options={{ headerTitle: '' }} component={Detail}></Stack.Screen>
             <Stack.Screen name="Thanks" options={{ headerTitle: '' }} component={Thanks}></Stack.Screen>
+            <Stack.Screen name="ShippingInfo" options={{ headerTitle: 'Thông tin giao hàng' }} component={ShippingInfo}></Stack.Screen>
+            <Stack.Screen name="HistoryBuild" options={{ headerTitle: 'Lịch Sử build' }} component={HistoryBuild}></Stack.Screen>
+            <Stack.Screen name="HisDetail" options={{ headerTitle: '' }} component={HisDetail}></Stack.Screen>
         </Stack.Navigator>
     );
 };

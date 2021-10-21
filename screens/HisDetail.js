@@ -1,15 +1,9 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal, Button } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from 'react';
+import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
 import { useState } from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
-import Intl from 'intl';
-import 'intl/locale-data/jsonp/vi';
-import { CPUList, VGAList, mainList, PSUList } from '../components/ListAccessory';
-export function Detail({ navigation, route }) {
+export function HisDetail({ navigation, route }) {
     const { pc } = route.params;
-    var computer = pc.pc;
-    const [modalVisible, setModalVisible] = useState(false);
+    var computer = pc;
     const [CPU, setCPU] = useState(computer.CPU);
     const [main, setMain] = useState(computer.main);
     const [VGA, setVGA] = useState(computer.VGA);
@@ -19,42 +13,6 @@ export function Detail({ navigation, route }) {
     const [hardDv, setHardDv] = useState(computer.hardDv);
     const [radiators, setRadiators] = useState(computer.radiators);
     const [totalPrice, setTotalPrice] = useState(CPU.price + main.price + VGA.price + PSU.price + ram.price + casePC.price + hardDv.price + radiators.price);
-    const [mainInfo, setMainInfo] = useState('CPU');
-    const [listChange, setListChange] = useState(CPUList);
-    const touchChangeDetail = (access, type) => {
-        setName(access.name);
-        setImage(access.image);
-        setDescription(access.description);
-        setPrice(access.price);
-        setMainInfo(type);
-    };
-
-    const handleChangeAccessory = (access) => {
-        setName(access.name);
-        setImage(access.image);
-        setDescription(access.description);
-        setPrice(access.price);
-        switch (mainInfo) {
-            case 'CPU':
-                setTotalPrice(totalPrice - CPU.price + access.price);
-                setCPU(access);
-                break;
-            case 'PSU':
-                setTotalPrice(totalPrice - PSU.price + access.price);
-                setPSU(access);
-                break;
-            case 'main':
-                setTotalPrice(totalPrice - main.price + access.price);
-                setMain(access);
-                break;
-            case 'VGA':
-                setTotalPrice(totalPrice - VGA.price + access.price);
-                setVGA(access);
-                break;
-        }
-        setModalVisible(false);
-    };
-
     return (
         <ScrollView style={{ backgroundColor: '#92DDD0' }}>
             <View style={{ alignItems: 'center', backgroundColor: '#92DDD0', flex: 1, marginTop: 20 }}>
@@ -247,47 +205,11 @@ export function Detail({ navigation, route }) {
                     <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>
                         Tổng giá: <Text style={{ color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)}</Text>{' '}
                     </Text>
-                    <TouchableOpacity
-                        onPress={() => {
-                            navigation.navigate('Payment');
-                        }}
-                        style={{ marginEnd: 20, marginTop: 10 }}
-                    >
-                        <Text style={styles.button}>Đi đến giao hàng</Text>
-                    </TouchableOpacity>
                 </View>
-                <Modal style={styles.modal} transparent visible={modalVisible} animationType="slide">
-                    <View style={styles.modal}>
-                        <TouchableOpacity onPress={() => setModalVisible(false)} style={{ alignItems: 'flex-end', paddingBottom: 10 }}>
-                            <Text style={styles.closeButton}>Close</Text>
-                        </TouchableOpacity>
-                        <ScrollView>
-                            {listChange.map((access) => (
-                                <TouchableOpacity key={access.price} activeOpacity="0.5" style={styles.touchAble3} onPress={() => handleChangeAccessory(access)}>
-                                    <View style={{ width: '40%', height: '100%' }}>
-                                        <Image source={access.image} style={{ width: '80%', height: '80%', marginTop: '10%' }} />
-                                    </View>
-                                    <View style={{ width: '60%', height: '100%', marginTop: '5%' }}>
-                                        <Text style={styles.title}>
-                                            Tên: <Text style={styles.description}>{access.name}</Text>
-                                        </Text>
-                                        <Text style={styles.title}>
-                                            Mô tả: <Text style={styles.description}>{access.description}</Text>
-                                        </Text>
-                                        <Text style={styles.title}>
-                                            Giá: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(access.price)} </Text>
-                                        </Text>
-                                    </View>
-                                </TouchableOpacity>
-                            ))}
-                        </ScrollView>
-                    </View>
-                </Modal>
             </View>
         </ScrollView>
     );
 }
-
 const styles = StyleSheet.create({
     touchAble: {
         width: 320,

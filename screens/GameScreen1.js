@@ -90,7 +90,9 @@ export function GameScreen1({ navigation }) {
     };
     const gotoSearch = () => {
         if (price !== '') {
-            navigation.navigate('Search');
+            navigation.navigate('Search', {
+                purpose: 'Game',
+            });
         } else {
             setErrorInput('Nhập giá trước khi tìm kiếm.');
             setTimeout(() => {

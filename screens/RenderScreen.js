@@ -81,16 +81,16 @@ export function RenderScreen({ navigation }) {
     const qs3 = () => (
         <View style={styles.container}>
             <Text style={styles.qs}>Chất lượng âm thanh yêu cầu?</Text>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs3)}>
+            <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
                 <Text style={{ padding: 15, fontSize: 16 }}>48 kb/giây</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs3)}>
+            <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
                 <Text style={{ padding: 15, fontSize: 15 }}>128 kb/giây</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs3)}>
+            <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
                 <Text style={{ padding: 15, fontSize: 16 }}>320 kb/giây</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwser} onPress={() => setqsShow(qs3)}>
+            <TouchableOpacity style={styles.anwser} onPress={() => setIsEnd(true)}>
                 <Text style={{ padding: 15, fontSize: 16 }}>Lossless</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setqsShow(qs2)}>
@@ -114,19 +114,42 @@ export function RenderScreen({ navigation }) {
     };
     const gotoSearch = () => {
         if (price !== '') {
-            navigation.navigate('Search');
+            navigation.navigate('Search', {
+                purpose: 'Video',
+            });
         }
     };
     const final = () => (
         <View style={styles.container}>
-            <TextInput onChangeText={(value) => changePrice(value)} value={price} style={styles.inputPrice} placeholderTextColor="#000000" placeholder="Số tiền bạn có"></TextInput>
-            <Text style={styles.errorInput}>{errorInput}</Text>
-            <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity onPress={() => setqsShow(qs5)} style={{ marginRight: 120 }}>
-                    <Image style={{ width: 60, height: 60 }} source={require('../assets/back.png')}></Image>
-                </TouchableOpacity>
+            <View
+                style={{
+                    width: '90%',
+                    alignItems: 'center',
+                    backgroundColor: '#FFF',
+                    shadowColor: '#000',
+                    shadowOffset: {
+                        width: 0,
+                        height: 12,
+                    },
+                    shadowOpacity: 0.58,
+                    shadowRadius: 16.0,
+                    elevation: 15,
+                    borderRadius: 10,
+                }}
+            >
+                <Text style={{ marginBottom: 20, marginTop: 30, fontSize: 20 }}>Nhập số tiền bạn có (VNĐ)</Text>
+                <View style={{ flexDirection: 'row', width: '100%' }}>
+                    <Text style={{ marginTop: 15, marginRight: 10, marginLeft: 10 }}>Số tiền:</Text>
+                    <TextInput onChangeText={(value) => changePrice(value)} value={price} style={styles.inputPrice}></TextInput>
+                </View>
+                <Text style={styles.errorInput}>{errorInput}</Text>
                 <TouchableOpacity onPress={() => gotoSearch()}>
-                    <Image style={{ width: 60, height: 60 }} source={require('../assets/next.png')}></Image>
+                    <Text style={styles.button}>{`Tìm kiếm gợi ý `}</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+                <TouchableOpacity onPress={() => setIsEnd(false)}>
+                    <Image style={{ width: 60, height: 60 }} source={require('../assets/back.png')}></Image>
                 </TouchableOpacity>
             </View>
         </View>
@@ -171,9 +194,10 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     inputPrice: {
-        padding: 15,
-        width: '80%',
-        backgroundColor: '#92DDD0',
+        padding: 10,
+        width: '75%',
+        //    backgroundColor: '#92DDD0',
+        backgroundColor: '#FFF',
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -182,10 +206,25 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.58,
         shadowRadius: 16.0,
         elevation: 15,
-        borderRadius: 60,
+        borderRadius: 10,
     },
     errorInput: {
         color: 'red',
         marginTop: 5,
+    },
+    button: {
+        backgroundColor: '#92DDD0',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginBottom: 20,
+        borderRadius: 60,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.0,
+        elevation: 15,
     },
 });
