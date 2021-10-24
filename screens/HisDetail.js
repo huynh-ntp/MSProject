@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
 import { useState } from 'react';
+import { pc1 } from '../components/ListAccessory';
 export function HisDetail({ navigation, route }) {
     const { pc } = route.params;
     var computer = pc;

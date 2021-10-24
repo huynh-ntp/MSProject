@@ -8,24 +8,25 @@ export function Payment({ navigation }) {
     const [province, setprovince] = useState('');
     const [district, setdistrict] = useState('');
     const [ward, setward] = useState('');
-
+    const [phone, setphone] = useState('094123456');
+    const [address, setaddress] = useState('143/45 Hẻm 11');
     useEffect(() => {
         fetch('https://provinces.open-api.vn/api/?depth=3')
             .then((response) => response.json())
             .then((data) => {
                 let p = data;
-                let p1 = p[0];
-                p1.name = '';
-                p.push(p1);
+                //  let p1 = p[0];
+                //  p1.name = '';
+                //  p.push(p1);
                 setprovince(p.length);
                 setprovinces(p);
                 let d = p[0].districts;
-                let d2 = d[0];
-                d2.name = '';
+                //  let d2 = d[0];
+                //  d2.name = '';
                 setdistricts(d);
                 let w = d[0].wards;
-                let w2 = w[0];
-                w2.name = '';
+                //  let w2 = w[0];
+                //  w2.name = '';
                 setwards(w);
                 setward(w.length);
                 setwards(d[0].wards);
@@ -54,7 +55,7 @@ export function Payment({ navigation }) {
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={{ width: '30%', marginTop: 5 }}>Số điện thoại:</Text>
-                    <TextInput style={styles.inputField}></TextInput>
+                    <TextInput value={phone} onChangeText={(value) => setphone(value)} style={styles.inputField}></TextInput>
                 </View>
                 <View style={{ flexDirection: 'row', marginTop: 5 }}>
                     <Text style={{ width: '30%', marginTop: 10 }}>Tỉnh, Tp:</Text>
@@ -82,7 +83,7 @@ export function Payment({ navigation }) {
                 </View>
                 <View style={{ flexDirection: 'row', marginBottom: 10 }}>
                     <Text style={{ width: '30%', marginTop: 5 }}>Đ.chỉ cụ thể:</Text>
-                    <TextInput style={styles.inputField}></TextInput>
+                    <TextInput value={address} onChangeText={(value) => setaddress(value)} style={styles.inputField}></TextInput>
                 </View>
                 <TouchableOpacity style={{ marginTop: 10 }} onPress={() => navigation.navigate('Thanks')}>
                     <Text style={styles.button}>Xác nhận</Text>

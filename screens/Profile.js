@@ -20,9 +20,9 @@ export default class Profile extends Component {
                 <View style={{ alignItems: 'center' }}>
                     <View style={{ width: '70%', height: 1, backgroundColor: '#000' }}></View>
                 </View>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('HistoryBuild')} style={{ flexDirection: 'row', padding: 10 }}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Order')} style={{ flexDirection: 'row', padding: 10 }}>
                     <Image source={require('../assets/order.png')} style={{ width: 60, height: 60, borderRadius: 40 }}></Image>
-                    <Text style={{ padding: 10, fontWeight: 'bold' }}>Lịch sử build</Text>
+                    <Text style={{ padding: 10, fontWeight: 'bold' }}>Đơn hàng</Text>
                 </TouchableOpacity>
                 <View style={{ alignItems: 'center' }}>
                     <View style={{ width: '70%', height: 1, backgroundColor: '#000' }}></View>

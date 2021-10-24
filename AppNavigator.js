@@ -14,8 +14,39 @@ import { Login } from './screens/Login';
 import { ShippingInfo } from './screens/ShippingInfo';
 import HistoryBuild from './screens/HistoryBuild';
 import { HisDetail } from './screens/HisDetail';
+import { Processing } from './screens/Processing';
+import { Complete } from './screens/Complete';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const TopTab = createMaterialTopTabNavigator();
+
+const Order = () => {
+    return (
+        <TopTab.Navigator initialRouteName="Processing">
+            <TopTab.Screen
+                name="Đang xử lý"
+                component={Processing}
+                headerTitle="Đang xử lý"
+                options={{
+                    // tabBarShowLabel:false,
+
+                    tabBarActiveTintColor: '#e91e63',
+                    tabBarStyle: { backgroundColor: 'white' },
+                }}
+            ></TopTab.Screen>
+            <TopTab.Screen
+                name="Hoàn thành"
+                component={Complete}
+                options={{
+                    // tabBarShowLabel:false,
+                    tabBarActiveTintColor: '#e91e63',
+                    tabBarStyle: { backgroundColor: 'white' },
+                }}
+            ></TopTab.Screen>
+        </TopTab.Navigator>
+    );
+};
 
 const BottomTabNavigation = () => {
     return (
@@ -42,6 +73,7 @@ const BottomTabNavigation = () => {
                     // tabBarActiveTintColor: 'tomato',
                 }}
             ></Tab.Screen>
+
             <Tab.Screen
                 name="Profile"
                 component={Profile}
@@ -77,6 +109,7 @@ const AppNavigator = () => {
             <Stack.Screen name="ShippingInfo" options={{ headerTitle: 'Thông tin giao hàng' }} component={ShippingInfo}></Stack.Screen>
             <Stack.Screen name="HistoryBuild" options={{ headerTitle: 'Lịch Sử build' }} component={HistoryBuild}></Stack.Screen>
             <Stack.Screen name="HisDetail" options={{ headerTitle: '' }} component={HisDetail}></Stack.Screen>
+            <Stack.Screen name="Order" options={{ headerTitle: 'Đơn hàng' }} component={Order}></Stack.Screen>
         </Stack.Navigator>
     );
 };

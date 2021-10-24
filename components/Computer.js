@@ -28,7 +28,7 @@ export default class Computer extends Component {
                     <Text style={styles.title}>
                         Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr}</Text>
                     </Text>
-                    <Text style={styles.button}>Detail</Text>
+                    <Text style={styles.button}>Chi tiết</Text>
                 </View>
             </TouchableOpacity>
         );

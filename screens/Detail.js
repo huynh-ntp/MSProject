@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal, Button } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import { useState } from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
 import Intl from 'intl';
 import 'intl/locale-data/jsonp/vi';
 import { CPUList, VGAList, mainList, PSUList } from '../components/ListAccessory';
 export function Detail({ navigation, route }) {
     const { pc } = route.params;
     var computer = pc.pc;
-    const [modalVisible, setModalVisible] = useState(false);
     const [CPU, setCPU] = useState(computer.CPU);
     const [main, setMain] = useState(computer.main);
     const [VGA, setVGA] = useState(computer.VGA);
@@ -20,7 +17,8 @@ export function Detail({ navigation, route }) {
     const [radiators, setRadiators] = useState(computer.radiators);
     const [totalPrice, setTotalPrice] = useState(CPU.price + main.price + VGA.price + PSU.price + ram.price + casePC.price + hardDv.price + radiators.price);
     const [mainInfo, setMainInfo] = useState('CPU');
-    const [listChange, setListChange] = useState(CPUList);
+    const [quantity, setquantity] = useState(1);
+    const [priceShow, setPriceShow] = useState(totalPrice);
     const touchChangeDetail = (access, type) => {
         setName(access.name);
         setImage(access.image);
@@ -57,7 +55,7 @@ export function Detail({ navigation, route }) {
 
     return (
         <ScrollView style={{ backgroundColor: '#92DDD0' }}>
-            <View style={{ alignItems: 'center', backgroundColor: '#92DDD0', flex: 1, marginTop: 20 }}>
+            <View style={{ alignItems: 'center', backgroundColor: '#92DDD0', flex: 1, marginTop: 2 }}>
                 <View style={{ width: '95%', height: 'auto', padding: 20, backgroundColor: '#FFF', borderRadius: 20, marginBottom: 30 }}>
                     <Text style={{ marginLeft: '30%', fontSize: 20, marginBottom: 10, fontWeight: 'bold' }}>Tổng quan bộ máy</Text>
                     <View style={{ flexDirection: 'row' }}>
@@ -109,7 +107,6 @@ export function Detail({ navigation, route }) {
                             <Text style={styles.title}>
                                 Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(CPU.price)} </Text>
                             </Text>
-                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
                         </View>
                     </View>
                     <View style={styles.touchAble}>
@@ -127,7 +124,6 @@ export function Detail({ navigation, route }) {
                             <Text style={styles.title}>
                                 Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(main.price)} </Text>
                             </Text>
-                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
                         </View>
                     </View>
                     <View style={styles.touchAble}>
@@ -145,7 +141,6 @@ export function Detail({ navigation, route }) {
                             <Text style={styles.title}>
                                 Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(VGA.price)} </Text>
                             </Text>
-                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
                         </View>
                     </View>
 
@@ -164,7 +159,6 @@ export function Detail({ navigation, route }) {
                             <Text style={styles.title}>
                                 Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(PSU.price)} </Text>
                             </Text>
-                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
                         </View>
                     </View>
 
@@ -183,7 +177,6 @@ export function Detail({ navigation, route }) {
                             <Text style={styles.title}>
                                 Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(ram.price)} </Text>
                             </Text>
-                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
                         </View>
                     </View>
 
@@ -202,7 +195,6 @@ export function Detail({ navigation, route }) {
                             <Text style={styles.title}>
                                 Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(casePC.price)} </Text>
                             </Text>
-                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
                         </View>
                     </View>
                     <View style={styles.touchAble}>
@@ -220,7 +212,6 @@ export function Detail({ navigation, route }) {
                             <Text style={styles.title}>
                                 Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(hardDv.price)} </Text>
                             </Text>
-                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
                         </View>
                     </View>
                     <View style={styles.touchAble}>
@@ -238,14 +229,36 @@ export function Detail({ navigation, route }) {
                             <Text style={styles.title}>
                                 Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(radiators.price)} </Text>
                             </Text>
-                            {/* <Text style={styles.buttonChange}>Click để đổi linh kiện</Text> */}
                         </View>
                     </View>
                 </ScrollView>
-
+                <View style={{ marginTop: 20, flexDirection: 'row', marginLeft: 130 }}>
+                    <Text style={{ fontSize: 20, marginRight: 20, marginTop: 5 }}>Số lượng:</Text>
+                    <TouchableOpacity
+                        onPress={() => {
+                            if (quantity > 1) {
+                                let q = quantity;
+                                setquantity(q - 1);
+                                setPriceShow(totalPrice * (q - 1));
+                            }
+                        }}
+                    >
+                        <Image source={require('../assets/subtracting-button.png')} style={{ width: 40, height: 40 }}></Image>
+                    </TouchableOpacity>
+                    <TextInput value={`${quantity}`} style={{ width: 40, height: 40, padding: 10, backgroundColor: '#FFF', borderRadius: 10, fontSize: 16 }}></TextInput>
+                    <TouchableOpacity
+                        onPress={() => {
+                            let q = quantity;
+                            setquantity(q + 1);
+                            setPriceShow((q + 1) * totalPrice);
+                        }}
+                    >
+                        <Image source={require('../assets/plus.png')} style={{ width: 40, height: 40 }}></Image>
+                    </TouchableOpacity>
+                </View>
                 <View style={{ width: '100%', height: 180, alignItems: 'flex-end', paddingTop: 20 }}>
                     <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>
-                        Tổng giá: <Text style={{ color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)}</Text>{' '}
+                        Tổng giá: <Text style={{ color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(priceShow)}</Text>{' '}
                     </Text>
                     <TouchableOpacity
                         onPress={() => {
@@ -253,36 +266,9 @@ export function Detail({ navigation, route }) {
                         }}
                         style={{ marginEnd: 20, marginTop: 10 }}
                     >
-                        <Text style={styles.button}>Đi đến giao hàng</Text>
+                        <Text style={styles.button}>Đi đến thanh toán</Text>
                     </TouchableOpacity>
                 </View>
-                <Modal style={styles.modal} transparent visible={modalVisible} animationType="slide">
-                    <View style={styles.modal}>
-                        <TouchableOpacity onPress={() => setModalVisible(false)} style={{ alignItems: 'flex-end', paddingBottom: 10 }}>
-                            <Text style={styles.closeButton}>Close</Text>
-                        </TouchableOpacity>
-                        <ScrollView>
-                            {listChange.map((access) => (
-                                <TouchableOpacity key={access.price} activeOpacity="0.5" style={styles.touchAble3} onPress={() => handleChangeAccessory(access)}>
-                                    <View style={{ width: '40%', height: '100%' }}>
-                                        <Image source={access.image} style={{ width: '80%', height: '80%', marginTop: '10%' }} />
-                                    </View>
-                                    <View style={{ width: '60%', height: '100%', marginTop: '5%' }}>
-                                        <Text style={styles.title}>
-                                            Tên: <Text style={styles.description}>{access.name}</Text>
-                                        </Text>
-                                        <Text style={styles.title}>
-                                            Mô tả: <Text style={styles.description}>{access.description}</Text>
-                                        </Text>
-                                        <Text style={styles.title}>
-                                            Giá: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(access.price)} </Text>
-                                        </Text>
-                                    </View>
-                                </TouchableOpacity>
-                            ))}
-                        </ScrollView>
-                    </View>
-                </Modal>
             </View>
         </ScrollView>
     );
@@ -338,7 +324,7 @@ const styles = StyleSheet.create({
     button: {
         paddingHorizontal: 20,
         paddingVertical: 15,
-        backgroundColor: '#909DD1',
+        backgroundColor: 'green',
         borderRadius: 20,
         shadowColor: '#000',
         shadowOffset: {
@@ -348,6 +334,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.58,
         shadowRadius: 16.0,
         elevation: 21,
+        color: '#FFF',
     },
     modal: {
         flex: 1,
