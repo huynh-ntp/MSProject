@@ -245,7 +245,18 @@ export function Detail({ navigation, route }) {
                     >
                         <Image source={require('../assets/subtracting-button.png')} style={{ width: 40, height: 40 }}></Image>
                     </TouchableOpacity>
-                    <TextInput value={`${quantity}`} style={{ width: 40, height: 40, padding: 10, backgroundColor: '#FFF', borderRadius: 10, fontSize: 16 }}></TextInput>
+                    <TextInput
+                        value={`${quantity}`}
+                        onChangeText={(value) => {
+                            if (!isNaN(value)) {
+                                if (value >= 1) {
+                                    setquantity(value);
+                                    setPriceShow(value * totalPrice);
+                                }
+                            }
+                        }}
+                        style={{ width: 40, height: 40, padding: 10, backgroundColor: '#FFF', borderRadius: 10, fontSize: 16 }}
+                    ></TextInput>
                     <TouchableOpacity
                         onPress={() => {
                             let q = quantity;
