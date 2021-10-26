@@ -80,7 +80,7 @@ export function GameScreen1({ navigation }) {
     const [isEnd, setIsEnd] = useState(false);
     const changePrice = (value) => {
         if (isNaN(value)) {
-            setErrorInput('Xin nhập số.2323');
+            setErrorInput('Xin nhập số.');
             setTimeout(() => {
                 setErrorInput('');
             }, 2000);

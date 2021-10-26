@@ -97,7 +97,7 @@ export function Detail({ navigation, route }) {
                             <Image source={CPU.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
                         </View>
                         <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                            <Text>CPU</Text>
+                            <Text style={{ color: 'blue', fontSize: 18 }}>CPU</Text>
                             <Text style={styles.title}>
                                 Tên: <Text style={styles.description}>{CPU.name}</Text>
                             </Text>
@@ -114,7 +114,7 @@ export function Detail({ navigation, route }) {
                             <Image source={main.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
                         </View>
                         <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                            <Text>Mainboard</Text>
+                            <Text style={{ color: 'blue', fontSize: 18 }}>Mainboard</Text>
                             <Text style={styles.title}>
                                 Tên: <Text style={styles.description}>{main.name}</Text>
                             </Text>
@@ -131,7 +131,7 @@ export function Detail({ navigation, route }) {
                             <Image source={VGA.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
                         </View>
                         <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                            <Text>Card</Text>
+                            <Text style={{ color: 'blue', fontSize: 18 }}>Card</Text>
                             <Text style={styles.title}>
                                 Tên: <Text style={styles.description}>{VGA.name}</Text>
                             </Text>
@@ -149,7 +149,7 @@ export function Detail({ navigation, route }) {
                             <Image source={PSU.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
                         </View>
                         <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                            <Text>PSU</Text>
+                            <Text style={{ color: 'blue', fontSize: 18 }}>PSU</Text>
                             <Text style={styles.title}>
                                 Tên: <Text style={styles.description}>{PSU.name}</Text>
                             </Text>
@@ -167,7 +167,7 @@ export function Detail({ navigation, route }) {
                             <Image source={ram.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
                         </View>
                         <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                            <Text>Ram</Text>
+                            <Text style={{ color: 'blue', fontSize: 18 }}>Ram</Text>
                             <Text style={styles.title}>
                                 Tên: <Text style={styles.description}>{ram.name}</Text>
                             </Text>
@@ -185,7 +185,7 @@ export function Detail({ navigation, route }) {
                             <Image source={casePC.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
                         </View>
                         <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                            <Text>Case</Text>
+                            <Text style={{ color: 'blue', fontSize: 18 }}>Case</Text>
                             <Text style={styles.title}>
                                 Tên: <Text style={styles.description}>{casePC.name}</Text>
                             </Text>
@@ -202,7 +202,7 @@ export function Detail({ navigation, route }) {
                             <Image source={hardDv.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
                         </View>
                         <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                            <Text>Ổ cứng</Text>
+                            <Text style={{ color: 'blue', fontSize: 18 }}>Ổ cứng</Text>
                             <Text style={styles.title}>
                                 Tên: <Text style={styles.description}>{hardDv.name}</Text>
                             </Text>
@@ -219,7 +219,7 @@ export function Detail({ navigation, route }) {
                             <Image source={radiators.image} style={{ width: '100%', height: '80%', marginTop: '10%', borderRadius: 30 }} />
                         </View>
                         <View style={{ width: '55%', height: '100%', marginTop: '10%', marginLeft: 10 }}>
-                            <Text>Tản nhiệt</Text>
+                            <Text style={{ color: 'blue', fontSize: 18 }}>Tản nhiệt</Text>
                             <Text style={styles.title}>
                                 Tên: <Text style={styles.description}>{radiators.name}</Text>
                             </Text>

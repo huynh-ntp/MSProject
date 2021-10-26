@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Modal, TextInput } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Modal, TextInput, Alert } from 'react-native';
 import { useState } from 'react';
 import { pc1, film2 } from '../components/ListAccessory';
 export function Processing({ navigation }) {
@@ -45,6 +45,7 @@ export function Processing({ navigation }) {
                                 setmodalVisible(!modalVisible);
                             } else {
                                 setcancel(!cancel);
+                                Alert.alert('Đặt lại thành công');
                             }
                         }}
                     >
@@ -101,6 +102,7 @@ export function Processing({ navigation }) {
                             onPress={() => {
                                 setcancel(!cancel);
                                 setmodalVisible(!modalVisible);
+                                Alert.alert('Hủy thành công');
                             }}
                         >
                             <Text
