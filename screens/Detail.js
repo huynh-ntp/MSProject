@@ -273,11 +273,14 @@ export function Detail({ navigation, route }) {
                     </Text>
                     <TouchableOpacity
                         onPress={() => {
-                            navigation.navigate('Payment');
+                            navigation.navigate('Cart', {
+                                pc: computer,
+                                quantity: quantity,
+                            });
                         }}
                         style={{ marginEnd: 20, marginTop: 10 }}
                     >
-                        <Text style={styles.button}>Đi đến thanh toán</Text>
+                        <Text style={styles.button}>Tiến hành đặt hàng</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -336,7 +339,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 15,
         backgroundColor: 'green',
-        borderRadius: 20,
+        borderRadius: 10,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,

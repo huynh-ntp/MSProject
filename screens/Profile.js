@@ -7,8 +7,8 @@ export default class Profile extends Component {
         return (
             <View style={styles.container}>
                 <View style={{ alignItems: 'center', marginTop: -100 }}>
-                    <Image source={require('../assets/avata.jpg')} style={{ width: 80, height: 80, borderRadius: 40 }}></Image>
-                    <Text style={{ fontSize: 16, marginBottom: 30 }}>Lee Min Hoo</Text>
+                    <Image source={require('../assets/khoi.jpg')} style={{ width: 120, height: 120, borderRadius: 60 }}></Image>
+                    <Text style={{ fontSize: 16, marginBottom: 30 }}>Trần Nguyên Khôi</Text>
                 </View>
                 <View style={{ alignItems: 'center' }}>
                     <View style={{ width: '70%', height: 1, backgroundColor: '#000' }}></View>
@@ -24,6 +24,13 @@ export default class Profile extends Component {
                     <Image source={require('../assets/order.png')} style={{ width: 60, height: 60, borderRadius: 40 }}></Image>
                     <Text style={{ padding: 10, fontWeight: 'bold' }}>Đơn hàng</Text>
                 </TouchableOpacity>
+                <View style={{ alignItems: 'center' }}>
+                    <View style={{ width: '70%', height: 1, backgroundColor: '#000' }}></View>
+                </View>
+                <View onPress={() => this.props.navigation.navigate('Login')} style={{ flexDirection: 'row', padding: 10 }}>
+                    <Image source={require('../assets/hotline.jpg')} style={{ width: 60, height: 60, borderRadius: 40 }}></Image>
+                    <Text style={{ padding: 10, fontWeight: 'bold' }}>Hotline: 18001254</Text>
+                </View>
                 <View style={{ alignItems: 'center' }}>
                     <View style={{ width: '70%', height: 1, backgroundColor: '#000' }}></View>
                 </View>

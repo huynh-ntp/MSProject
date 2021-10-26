@@ -13,7 +13,7 @@ export function Complete({ navigation }) {
         <View style={styles.container}>
             <View style={styles.box}>
                 <View style={{ height: '100%', width: '40%' }}>
-                    <Image style={{ width: '80%', height: 160, marginTop: 10, marginLeft: 10 }} source={pc.CPU.image} />
+                    <Image style={{ width: '80%', height: 160, marginTop: 10, marginLeft: 10 }} source={require('../assets/pcicon.jpg')} />
                 </View>
                 <View style={{ paddingVertical: 15, width: '60%' }}>
                     <Text style={styles.title}>
@@ -25,7 +25,12 @@ export function Complete({ navigation }) {
                     <Text style={styles.title}>
                         Số điện thoại: <Text style={styles.description}> {`094123456`}</Text>
                     </Text>
-
+                    <Text style={styles.title}>
+                        Phương thức giao hàng: <Text style={styles.description}> {`Giao hàng tiết kiệm`}</Text>
+                    </Text>
+                    <Text style={styles.title}>
+                        Phương thức thanh toán: <Text style={styles.description}> {`ViettelPay`}</Text>
+                    </Text>
                     <Text style={styles.title}>
                         Ngày đặt: <Text style={{ fontWeight: '100', color: '#000' }}>{'2021-10-17 15:59'}</Text>
                     </Text>

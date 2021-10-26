@@ -20,6 +20,7 @@ export function ShippingInfo() {
     };
     const [phone, setphone] = useState('094123456');
     const [address, setaddress] = useState('143/45 Hẻm 11');
+    const [name, setname] = useState('Tran Nguyen Khoi');
     useEffect(() => {
         fetch('https://provinces.open-api.vn/api/?depth=3')
             .then((response) => response.json())
@@ -67,6 +68,10 @@ export function ShippingInfo() {
                 }}
             >
                 <View style={{ flexDirection: 'row' }}>
+                    <Text style={{ width: '30%', marginTop: 5 }}>Tên:</Text>
+                    <TextInput value={name} onChangeText={(value) => setname(value)} style={styles.inputField}></TextInput>
+                </View>
+                <View style={{ flexDirection: 'row', marginTop: 10 }}>
                     <Text style={{ width: '30%', marginTop: 5 }}>Số điện thoại:</Text>
                     <TextInput value={phone} onChangeText={(value) => setphone(value)} style={styles.inputField}></TextInput>
                 </View>

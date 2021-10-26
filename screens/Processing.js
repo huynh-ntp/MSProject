@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Modal, TextInput, Alert } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Modal, TextInput, Alert, ScrollView } from 'react-native';
 import { useState } from 'react';
 import { pc1, film2 } from '../components/ListAccessory';
 export function Processing({ navigation }) {
@@ -14,116 +14,139 @@ export function Processing({ navigation }) {
     const date = new Date();
     const strDate = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getUTCHours() + ':' + date.getUTCMinutes();
     return (
-        <View style={styles.container}>
-            <View style={styles.box}>
-                <View style={{ height: '100%', width: '40%' }}>
-                    <Image style={{ width: '80%', height: 160, marginTop: 10, marginLeft: 10 }} source={pc.CPU.image} />
-                </View>
-                <View style={{ paddingVertical: 15, width: '60%' }}>
-                    <Text style={styles.title}>
-                        Mã đơn hàng: <Text style={styles.description}>{'PC0039'}</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Địa chỉ: <Text style={styles.description}>143/45 Hẻm 11, Ba Đình, Hà Nội</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Số điện thoại: <Text style={styles.description}> {`094123456`}</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Số lượng: <Text style={styles.description}>{'1'}</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Ngày: <Text style={{ fontWeight: '100', color: '#000' }}>{strDate}</Text>
-                    </Text>
-                    <Text style={{ color: '#000', fontWeight: 'bold' }}>Tình trạng: {cancel ? <Text style={{ fontWeight: '100', color: 'red' }}>{'Đã hủy'}</Text> : <Text style={{ fontWeight: '100', color: 'blue' }}>{'Chờ xác nhận'}</Text>}</Text>
-                    <Text style={styles.title}>
-                        Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr2}</Text>
-                    </Text>
-                    <TouchableOpacity
-                        onPress={() => {
-                            if (!cancel) {
-                                setmodalVisible(!modalVisible);
-                            } else {
-                                setcancel(!cancel);
-                                Alert.alert('Đặt lại thành công');
+        <ScrollView>
+            <View style={styles.container}>
+                <View style={styles.box}>
+                    <View style={{ height: '100%', width: '40%' }}>
+                        <Image style={{ width: '80%', height: 160, marginTop: 10, marginLeft: 10 }} source={require('../assets/pcicon.jpg')} />
+                    </View>
+                    <View style={{ paddingVertical: 15, width: '60%' }}>
+                        <Text style={styles.title}>
+                            Mã đơn hàng: <Text style={styles.description}>{'PC0039'}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Địa chỉ: <Text style={styles.description}>143/45 Hẻm 11, Ba Đình, Hà Nội</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Số điện thoại: <Text style={styles.description}> {`094123456`}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Phương thức giao hàng: <Text style={styles.description}> {`Giao hàng tiết kiệm`}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Phương thức thanh toán: <Text style={styles.description}> {`Khi nhận hàng`}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Số lượng: <Text style={styles.description}>1</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Ngày: <Text style={{ fontWeight: '100', color: '#000' }}>{strDate}</Text>
+                        </Text>
+                        <Text style={{ color: '#000', fontWeight: 'bold' }}>Tình trạng: {cancel ? <Text style={{ fontWeight: '100', color: 'red' }}>{'Đã hủy'}</Text> : <Text style={{ fontWeight: '100', color: 'blue' }}>{'Chờ xác nhận'}</Text>}</Text>
+                        <Text style={styles.title}>
+                            Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr2}</Text>
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('HisDetail', {
+                                    pc: pc,
+                                })
                             }
-                        }}
-                    >
-                        {cancel ? <Text style={styles.button}>Đặt lại</Text> : <Text style={styles.button}>Hủy đơn</Text>}
-                    </TouchableOpacity>
-                </View>
-            </View>
-            <View style={styles.box}>
-                <View style={{ height: '100%', width: '40%' }}>
-                    <Image style={{ width: '80%', height: 160, marginTop: 10, marginLeft: 10 }} source={pc2.CPU.image} />
-                </View>
-                <View style={{ paddingVertical: 15, width: '60%' }}>
-                    <Text style={styles.title}>
-                        Mã đơn hàng: <Text style={styles.description}>{'PC0039'}</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Địa chỉ: <Text style={styles.description}>143/45 Hẻm 11, Ba Đình, Hà Nội</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Số điện thoại: <Text style={styles.description}> {`094123456`}</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Số lượng: <Text style={styles.description}>{'2'}</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Ngày: <Text style={{ fontWeight: '100', color: '#000' }}>{'2021-10-17 15:59'}</Text>
-                    </Text>
-                    <Text style={{ color: '#000', fontWeight: 'bold' }}>
-                        Tình trạng: <Text style={{ fontWeight: '100', color: 'blue' }}>{'Đang giao'}</Text>
-                    </Text>
-                    <Text style={styles.title}>
-                        Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr}</Text>
-                    </Text>
-                    <TouchableOpacity
-                        onPress={() =>
-                            navigation.navigate('HisDetail', {
-                                pc: pc2,
-                            })
-                        }
-                    >
-                        <Text style={styles.button}>Chi tiết máy</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-            <Modal visible={modalVisible} animationType="slide" transparent={true}>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22 }}>
-                    <View style={styles.modalView}>
-                        <Text style={{ fontSize: 20, marginBottom: 20 }}>Tại sao bạn muốn hủy đơn ?</Text>
-                        <View style={{ width: '100%', flexDirection: 'row' }}>
-                            <Text style={{ marginTop: 10, marginRight: 20 }}>Lý do:</Text>
-                            <TextInput style={{ color: '#FFF', width: 300, height: 40, paddingHorizontal: 10, paddingVertical: 7, backgroundColor: 'gray', borderRadius: 20 }}></TextInput>
-                        </View>
+                        >
+                            <Text style={styles.button}>Chi tiết máy</Text>
+                        </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => {
-                                setcancel(!cancel);
-                                setmodalVisible(!modalVisible);
-                                Alert.alert('Hủy thành công');
+                                if (!cancel) {
+                                    setmodalVisible(!modalVisible);
+                                } else {
+                                    setcancel(!cancel);
+                                    Alert.alert('Đặt lại thành công');
+                                }
                             }}
                         >
-                            <Text
-                                style={{
-                                    backgroundColor: 'green',
-                                    paddingVertical: 7,
-                                    paddingHorizontal: 10,
-                                    width: 120,
-                                    textAlign: 'center',
-                                    borderRadius: 50,
-                                    marginTop: 10,
-                                    color: '#FFF',
-                                }}
-                            >
-                                Xác nhận
-                            </Text>
+                            {cancel ? <Text style={styles.button}>Đặt lại</Text> : <Text style={styles.button}>Hủy đơn</Text>}
                         </TouchableOpacity>
                     </View>
                 </View>
-            </Modal>
-        </View>
+                <View style={styles.box}>
+                    <View style={{ height: '100%', width: '40%' }}>
+                        <Image style={{ width: '80%', height: 160, marginTop: 10, marginLeft: 10 }} source={require('../assets/pcicon.jpg')} />
+                    </View>
+                    <View style={{ paddingVertical: 15, width: '60%' }}>
+                        <Text style={styles.title}>
+                            Mã đơn hàng: <Text style={styles.description}>{'PC0039'}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Địa chỉ: <Text style={styles.description}>143/45 Hẻm 11, Ba Đình, Hà Nội</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Số điện thoại: <Text style={styles.description}> {`094123456`}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Phương thức giao hàng: <Text style={styles.description}> {`Giao hàng nhanh`}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Phương thức thanh toán: <Text style={styles.description}> {`Ví momo`}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Số lượng: <Text style={styles.description}>{'2'}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Ngày: <Text style={{ fontWeight: '100', color: '#000' }}>{'2021-10-17 15:59'}</Text>
+                        </Text>
+                        <Text style={{ color: '#000', fontWeight: 'bold' }}>
+                            Tình trạng: <Text style={{ fontWeight: '100', color: 'blue' }}>{'Đang giao'}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr}</Text>
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.navigate('HisDetail', {
+                                    pc: pc2,
+                                })
+                            }
+                        >
+                            <Text style={styles.button}>Chi tiết máy</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <Modal visible={modalVisible} animationType="slide" transparent={true}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22 }}>
+                        <View style={styles.modalView}>
+                            <Text style={{ fontSize: 20, marginBottom: 20 }}>Tại sao bạn muốn hủy đơn ?</Text>
+                            <View style={{ width: '100%', flexDirection: 'row' }}>
+                                <Text style={{ marginTop: 10, marginRight: 20 }}>Lý do:</Text>
+                                <TextInput style={{ color: '#FFF', width: 300, height: 40, paddingHorizontal: 10, paddingVertical: 7, backgroundColor: 'gray', borderRadius: 20 }}></TextInput>
+                            </View>
+                            <TouchableOpacity
+                                onPress={() => {
+                                    setcancel(!cancel);
+                                    setmodalVisible(!modalVisible);
+                                    Alert.alert('Hủy thành công');
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        backgroundColor: 'green',
+                                        paddingVertical: 7,
+                                        paddingHorizontal: 10,
+                                        width: 120,
+                                        textAlign: 'center',
+                                        borderRadius: 50,
+                                        marginTop: 10,
+                                        color: '#FFF',
+                                    }}
+                                >
+                                    Xác nhận
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </Modal>
+            </View>
+        </ScrollView>
     );
 }
 
@@ -133,7 +156,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     box: {
-        height: 'auto',
         backgroundColor: '#FFF',
         borderRadius: 30,
         marginLeft: 20,
@@ -162,7 +184,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         width: 120,
         textAlign: 'center',
-        borderRadius: 50,
+        borderRadius: 20,
         marginLeft: 60,
         marginTop: 10,
         color: '#FFF',

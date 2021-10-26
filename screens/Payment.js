@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { View, TextInput, Text, Picker, StyleSheet, Image, TouchableOpacity } from 'react-native';
-export function Payment({ navigation }) {
+export function Payment({ navigation, route }) {
+    const { totalPrice } = route.params;
     const [provinces, setprovinces] = useState([]);
     const [districts, setdistricts] = useState([]);
     const [wards, setwards] = useState([]);
@@ -10,6 +11,7 @@ export function Payment({ navigation }) {
     const [ward, setward] = useState('');
     const [phone, setphone] = useState('094123456');
     const [address, setaddress] = useState('143/45 Hẻm 11');
+    const [name, setname] = useState('Trần Nguyên Khôi');
     useEffect(() => {
         fetch('https://provinces.open-api.vn/api/?depth=3')
             .then((response) => response.json())
@@ -51,7 +53,7 @@ export function Payment({ navigation }) {
                 <Text style={{ color: 'green', fontSize: 20, marginBottom: 30 }}>Thông tin giao hàng</Text>
                 <View style={{ flexDirection: 'row', marginBottom: 10 }}>
                     <Text style={{ width: '30%', marginTop: 5 }}>Họ tên: </Text>
-                    <Text style={{ width: '70%' }}>Lee Min Hoo</Text>
+                    <TextInput value={name} onChangeText={(value) => setname(value)} style={styles.inputField}></TextInput>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={{ width: '30%', marginTop: 5 }}>Số điện thoại:</Text>
@@ -85,8 +87,15 @@ export function Payment({ navigation }) {
                     <Text style={{ width: '30%', marginTop: 5 }}>Đ.chỉ cụ thể:</Text>
                     <TextInput value={address} onChangeText={(value) => setaddress(value)} style={styles.inputField}></TextInput>
                 </View>
-                <TouchableOpacity style={{ marginTop: 10 }} onPress={() => navigation.navigate('Thanks')}>
-                    <Text style={styles.button}>Xác nhận</Text>
+                <TouchableOpacity
+                    style={{ marginTop: 10 }}
+                    onPress={() =>
+                        navigation.navigate('PaymentType', {
+                            totalPrice: totalPrice,
+                        })
+                    }
+                >
+                    <Text style={styles.button}>Tiếp tục</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -136,7 +145,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'green',
         paddingVertical: 12,
         paddingHorizontal: 20,
-        borderRadius: 20,
+        borderRadius: 10,
         color: '#FFF',
         shadowColor: '#000',
         shadowOffset: {

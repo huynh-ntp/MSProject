@@ -16,6 +16,8 @@ import HistoryBuild from './screens/HistoryBuild';
 import { HisDetail } from './screens/HisDetail';
 import { Processing } from './screens/Processing';
 import { Complete } from './screens/Complete';
+import { Cart } from './screens/Cart';
+import { PaymentType } from './screens/PaymentType';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -110,6 +112,8 @@ const AppNavigator = () => {
             <Stack.Screen name="HistoryBuild" options={{ headerTitle: 'Lịch Sử build' }} component={HistoryBuild}></Stack.Screen>
             <Stack.Screen name="HisDetail" options={{ headerTitle: '' }} component={HisDetail}></Stack.Screen>
             <Stack.Screen name="Order" options={{ headerTitle: 'Đơn hàng' }} component={Order}></Stack.Screen>
+            <Stack.Screen name="Cart" options={{ headerTitle: 'Chi tiết đơn hàng' }} component={Cart}></Stack.Screen>
+            <Stack.Screen name="PaymentType" options={{ headerTitle: 'Thanh toán và giao hàng' }} component={PaymentType}></Stack.Screen>
         </Stack.Navigator>
     );
 };
