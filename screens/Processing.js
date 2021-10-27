@@ -69,7 +69,9 @@ export function Processing({ navigation }) {
                                     setmodalVisible(!modalVisible);
                                 } else {
                                     setcancel(!cancel);
-                                    Alert.alert('Đặt lại thành công');
+                                    navigation.navigate('Detail', {
+                                        pc: pc1,
+                                    });
                                 }
                             }}
                         >

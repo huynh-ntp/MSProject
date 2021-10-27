@@ -13,7 +13,7 @@ export function Search({ navigation, route }) {
     const computers = purpose === 'Game' ? listPC : listPC2;
     const toDetail = (pc) => {
         navigation.navigate('Detail', {
-            pc: { pc },
+            pc: pc,
         });
     };
 

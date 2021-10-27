@@ -53,7 +53,7 @@ export function Complete({ navigation }) {
                     <TouchableOpacity
                         onPress={() =>
                             navigation.navigate('HisDetail', {
-                                pc: pc,
+                                pc: { pc },
                             })
                         }
                     >

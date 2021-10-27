@@ -6,7 +6,7 @@ import 'intl/locale-data/jsonp/vi';
 import { CPUList, VGAList, mainList, PSUList } from '../components/ListAccessory';
 export function Detail({ navigation, route }) {
     const { pc } = route.params;
-    var computer = pc.pc;
+    var computer = pc;
     const [CPU, setCPU] = useState(computer.CPU);
     const [main, setMain] = useState(computer.main);
     const [VGA, setVGA] = useState(computer.VGA);
@@ -275,7 +275,6 @@ export function Detail({ navigation, route }) {
                         onPress={() => {
                             navigation.navigate('Cart', {
                                 pc: computer,
-                                quantity: quantity,
                             });
                         }}
                         style={{ marginEnd: 20, marginTop: 10 }}
