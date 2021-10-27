@@ -232,7 +232,7 @@ export function Detail({ navigation, route }) {
                         </View>
                     </View>
                 </ScrollView>
-                <View style={{ marginTop: 20, flexDirection: 'row', marginLeft: 130 }}>
+                {/* <View style={{ marginTop: 20, flexDirection: 'row', marginLeft: 130 }}>
                     <Text style={{ fontSize: 20, marginRight: 20, marginTop: 5 }}>Số lượng:</Text>
                     <TouchableOpacity
                         onPress={() => {
@@ -266,7 +266,7 @@ export function Detail({ navigation, route }) {
                     >
                         <Image source={require('../assets/plus.png')} style={{ width: 40, height: 40 }}></Image>
                     </TouchableOpacity>
-                </View>
+                </View> */}
                 <View style={{ width: '100%', height: 180, alignItems: 'flex-end', paddingTop: 20 }}>
                     <Text style={{ fontWeight: 'bold', marginEnd: 20 }}>
                         Tổng giá: <Text style={{ color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(priceShow)}</Text>{' '}

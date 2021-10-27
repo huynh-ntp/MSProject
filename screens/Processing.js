@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Modal, TextInput, Alert, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Modal, TextInput, Alert, ScrollView, Picker } from 'react-native';
 import { useState } from 'react';
 import { pc1, film2 } from '../components/ListAccessory';
 export function Processing({ navigation }) {
@@ -13,6 +13,7 @@ export function Processing({ navigation }) {
     const [modalVisible, setmodalVisible] = useState(false);
     const date = new Date();
     const strDate = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getUTCHours() + ':' + date.getUTCMinutes();
+    const [selectReseason, setselectReseason] = useState('1');
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -23,6 +24,9 @@ export function Processing({ navigation }) {
                     <View style={{ paddingVertical: 15, width: '60%' }}>
                         <Text style={styles.title}>
                             Mã đơn hàng: <Text style={styles.description}>{'PC0039'}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Tên: <Text style={styles.description}> Nguyên Khôi</Text>
                         </Text>
                         <Text style={styles.title}>
                             Địa chỉ: <Text style={styles.description}>143/45 Hẻm 11, Ba Đình, Hà Nội</Text>
@@ -36,16 +40,20 @@ export function Processing({ navigation }) {
                         <Text style={styles.title}>
                             Phương thức thanh toán: <Text style={styles.description}> {`Khi nhận hàng`}</Text>
                         </Text>
-                        <Text style={styles.title}>
-                            Số lượng: <Text style={styles.description}>1</Text>
-                        </Text>
+
                         <Text style={styles.title}>
                             Ngày: <Text style={{ fontWeight: '100', color: '#000' }}>{strDate}</Text>
                         </Text>
-                        <Text style={{ color: '#000', fontWeight: 'bold' }}>Tình trạng: {cancel ? <Text style={{ fontWeight: '100', color: 'red' }}>{'Đã hủy'}</Text> : <Text style={{ fontWeight: '100', color: 'blue' }}>{'Chờ xác nhận'}</Text>}</Text>
                         <Text style={styles.title}>
-                            Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr2}</Text>
+                            Phí giao hàng: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(30000)}</Text>
                         </Text>
+                        <Text style={styles.title}>
+                            Giá sản phẩm: <Text style={styles.description}>{totalStr2}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Tổng cộng: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(30000 + totalPrice2)}</Text>
+                        </Text>
+                        <Text style={{ color: '#000', fontWeight: 'bold' }}>Tình trạng: {cancel ? <Text style={{ fontWeight: '100', color: 'red' }}>{'Đã hủy'}</Text> : <Text style={{ fontWeight: '100', color: 'blue' }}>{'Chờ xác nhận'}</Text>}</Text>
                         <TouchableOpacity
                             onPress={() =>
                                 navigation.navigate('HisDetail', {
@@ -75,7 +83,10 @@ export function Processing({ navigation }) {
                     </View>
                     <View style={{ paddingVertical: 15, width: '60%' }}>
                         <Text style={styles.title}>
-                            Mã đơn hàng: <Text style={styles.description}>{'PC0039'}</Text>
+                            Mã đơn hàng: <Text style={styles.description}>{'PC0154'}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Tên: <Text style={styles.description}>Trần Nguyên Khôi</Text>
                         </Text>
                         <Text style={styles.title}>
                             Địa chỉ: <Text style={styles.description}>143/45 Hẻm 11, Ba Đình, Hà Nội</Text>
@@ -90,17 +101,21 @@ export function Processing({ navigation }) {
                             Phương thức thanh toán: <Text style={styles.description}> {`Ví momo`}</Text>
                         </Text>
                         <Text style={styles.title}>
-                            Số lượng: <Text style={styles.description}>{'2'}</Text>
+                            Ngày: <Text style={{ fontWeight: '100', color: '#000' }}>{'2021-10-17 15:59'}</Text>
                         </Text>
                         <Text style={styles.title}>
-                            Ngày: <Text style={{ fontWeight: '100', color: '#000' }}>{'2021-10-17 15:59'}</Text>
+                            Phí giao hàng: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(40000)}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Giá sản phẩm: <Text style={styles.description}>{totalStr}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Tổng cộng: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(40000 + totalPrice)}</Text>
                         </Text>
                         <Text style={{ color: '#000', fontWeight: 'bold' }}>
                             Tình trạng: <Text style={{ fontWeight: '100', color: 'blue' }}>{'Đang giao'}</Text>
                         </Text>
-                        <Text style={styles.title}>
-                            Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr}</Text>
-                        </Text>
+
                         <TouchableOpacity
                             onPress={() =>
                                 navigation.navigate('HisDetail', {
@@ -115,9 +130,20 @@ export function Processing({ navigation }) {
                 <Modal visible={modalVisible} animationType="slide" transparent={true}>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 22 }}>
                         <View style={styles.modalView}>
-                            <Text style={{ fontSize: 20, marginBottom: 20 }}>Tại sao bạn muốn hủy đơn ?</Text>
+                            <Text style={{ fontSize: 20, marginBottom: 20 }}>Lý do hủy đơn hàng PC0039</Text>
+                            <View style={{ width: '100%', flexDirection: 'row', marginBottom: 10 }}>
+                                <Text style={{ marginTop: 10, marginRight: 20, width: '30%' }}>Lý do:</Text>
+                                <Picker onValueChange={(value, index) => setselectReseason(value)} selectedValue={selectReseason} style={{ height: 40, width: '110%' }}>
+                                    <Picker.Item value="1" label={'Chọn lý do'}></Picker.Item>
+                                    <Picker.Item value="2" label={'Đặt nhầm'}></Picker.Item>
+                                    <Picker.Item value="3" label={'Sai thông tin giao hàng'}></Picker.Item>
+                                    <Picker.Item value="3" label={'Phương thức thanh toán quá rắc rối'}></Picker.Item>
+                                    <Picker.Item value="4" label={'Đổi ý,không muốn mua nữa'}></Picker.Item>
+                                    <Picker.Item value="5" label={'Khác'}></Picker.Item>
+                                </Picker>
+                            </View>
                             <View style={{ width: '100%', flexDirection: 'row' }}>
-                                <Text style={{ marginTop: 10, marginRight: 20 }}>Lý do:</Text>
+                                <Text style={{ marginTop: 10, marginRight: 20 }}>Chi tiết:</Text>
                                 <TextInput style={{ color: '#FFF', width: 300, height: 40, paddingHorizontal: 10, paddingVertical: 7, backgroundColor: 'gray', borderRadius: 20 }}></TextInput>
                             </View>
                             <TouchableOpacity

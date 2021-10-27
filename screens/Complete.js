@@ -20,6 +20,9 @@ export function Complete({ navigation }) {
                         Mã đơn hàng: <Text style={styles.description}>{'PC0019'}</Text>
                     </Text>
                     <Text style={styles.title}>
+                        Tên: <Text style={styles.description}>Trần Nguyên Khôi</Text>
+                    </Text>
+                    <Text style={styles.title}>
                         Địa chỉ: <Text style={styles.description}>143/45 Hẻm 11, Ba Đình, Hà Nội</Text>
                     </Text>
                     <Text style={styles.title}>
@@ -35,14 +38,18 @@ export function Complete({ navigation }) {
                         Ngày đặt: <Text style={{ fontWeight: '100', color: '#000' }}>{'2021-10-17 15:59'}</Text>
                     </Text>
                     <Text style={styles.title}>
-                        Số lượng: <Text style={styles.description}> {`1`}</Text>
+                        Phí giao hàng: <Text style={styles.description}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(30000)}</Text>
+                    </Text>
+                    <Text style={styles.title}>
+                        Giá sản phẩm: <Text style={styles.description}>{totalStr}</Text>
+                    </Text>
+                    <Text style={styles.title}>
+                        Tổng cộng: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(30000 + totalPrice)}</Text>
                     </Text>
                     <Text style={{ color: '#000', fontWeight: 'bold' }}>
                         Tình trạng: <Text style={{ fontWeight: '100', color: 'green' }}>{'Đã giao'}</Text>
                     </Text>
-                    <Text style={styles.title}>
-                        Giá: <Text style={{ fontWeight: '100', color: 'red' }}>{totalStr}</Text>
-                    </Text>
+
                     <TouchableOpacity
                         onPress={() =>
                             navigation.navigate('HisDetail', {

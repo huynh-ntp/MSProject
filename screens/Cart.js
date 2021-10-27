@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Intl from 'intl';
 export function Cart({ navigation, route }) {
     const { pc } = route.params;
-    const { quantity } = route.params;
     var computer = pc;
     const [CPU, setCPU] = useState(computer.CPU);
     const [main, setMain] = useState(computer.main);
@@ -20,93 +19,75 @@ export function Cart({ navigation, route }) {
             <View style={styles.container}>
                 <View style={{ width: '98%', padding: 10, backgroundColor: '#FFF', marginTop: 20 }}>
                     <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ width: '40%' }}>Sản phẩm</Text>
-                        <Text style={{ width: '15%' }}>Đơn giá</Text>
-                        <Text style={{ width: '20%' }}>Số lượng</Text>
-                        <Text style={{ width: '25%' }}>Thành tiền</Text>
+                        <Text style={{ width: '70%' }}>Sản phẩm</Text>
+                        <Text style={{ width: '30%' }}>Đơn giá</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 15 }}>
-                        <View style={{ width: '40%', flexDirection: 'row' }}>
-                            <Image style={{ width: 50, height: 50 }} source={CPU.image}></Image>
+                        <View style={{ width: '70%', flexDirection: 'row' }}>
+                            <Image style={{ width: 55, height: 55 }} source={CPU.image}></Image>
                             <Text style={{ width: '60%' }}>{CPU.name}</Text>
                         </View>
-                        <Text style={{ width: '25%' }}>{CPU.price}</Text>
-                        <Text style={{ width: '10%' }}>{quantity}</Text>
-                        <Text style={{ width: '25%' }}>{CPU.price * quantity}</Text>
+                        <Text style={{ width: '25%' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(CPU.price)}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <View style={{ width: '40%', flexDirection: 'row' }}>
-                            <Image style={{ width: 50, height: 50 }} source={PSU.image}></Image>
+                        <View style={{ width: '70%', flexDirection: 'row' }}>
+                            <Image style={{ width: 55, height: 55 }} source={PSU.image}></Image>
                             <Text style={{ width: '60%' }}>{PSU.name}</Text>
                         </View>
-                        <Text style={{ width: '25%' }}>{PSU.price}</Text>
-                        <Text style={{ width: '10%' }}>{quantity}</Text>
-                        <Text style={{ width: '25%' }}>{PSU.price * quantity}</Text>
+                        <Text style={{ width: '25%' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(PSU.price)}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <View style={{ width: '40%', flexDirection: 'row' }}>
-                            <Image style={{ width: 50, height: 50 }} source={main.image}></Image>
+                        <View style={{ width: '70%', flexDirection: 'row' }}>
+                            <Image style={{ width: 55, height: 55 }} source={main.image}></Image>
                             <Text style={{ width: '60%' }}>{main.name}</Text>
                         </View>
-                        <Text style={{ width: '25%' }}>{main.price}</Text>
-                        <Text style={{ width: '10%' }}>{quantity}</Text>
-                        <Text style={{ width: '25%' }}>{main.price * quantity}</Text>
+                        <Text style={{ width: '25%' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(main.price)}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <View style={{ width: '40%', flexDirection: 'row' }}>
-                            <Image style={{ width: 50, height: 50 }} source={VGA.image}></Image>
+                        <View style={{ width: '70%', flexDirection: 'row' }}>
+                            <Image style={{ width: 55, height: 55 }} source={VGA.image}></Image>
                             <Text style={{ width: '60%' }}>{VGA.name}</Text>
                         </View>
-                        <Text style={{ width: '25%' }}>{VGA.price}</Text>
-                        <Text style={{ width: '10%' }}>{quantity}</Text>
-                        <Text style={{ width: '25%' }}>{VGA.price * quantity}</Text>
+                        <Text style={{ width: '25%' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(VGA.price)}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <View style={{ width: '40%', flexDirection: 'row' }}>
-                            <Image style={{ width: 50, height: 50 }} source={ram.image}></Image>
+                        <View style={{ width: '70%', flexDirection: 'row' }}>
+                            <Image style={{ width: 55, height: 55 }} source={ram.image}></Image>
                             <Text style={{ width: '60%' }}>{ram.name}</Text>
                         </View>
-                        <Text style={{ width: '25%' }}>{ram.price}</Text>
-                        <Text style={{ width: '10%' }}>{quantity}</Text>
-                        <Text style={{ width: '25%' }}>{ram.price * quantity}</Text>
+                        <Text style={{ width: '25%' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(ram.price)}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <View style={{ width: '40%', flexDirection: 'row' }}>
-                            <Image style={{ width: 50, height: 50 }} source={casePC.image}></Image>
+                        <View style={{ width: '70%', flexDirection: 'row' }}>
+                            <Image style={{ width: 55, height: 55 }} source={casePC.image}></Image>
                             <Text style={{ width: '60%' }}>{casePC.name}</Text>
                         </View>
-                        <Text style={{ width: '25%' }}>{casePC.price}</Text>
-                        <Text style={{ width: '10%' }}>{quantity}</Text>
-                        <Text style={{ width: '25%' }}>{casePC.price * quantity}</Text>
+                        <Text style={{ width: '25%' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(casePC.price)}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <View style={{ width: '40%', flexDirection: 'row' }}>
-                            <Image style={{ width: 50, height: 50 }} source={hardDv.image}></Image>
+                        <View style={{ width: '70%', flexDirection: 'row' }}>
+                            <Image style={{ width: 55, height: 55 }} source={hardDv.image}></Image>
                             <Text style={{ width: '60%' }}>{hardDv.name}</Text>
                         </View>
-                        <Text style={{ width: '25%' }}>{hardDv.price}</Text>
-                        <Text style={{ width: '10%' }}>{quantity}</Text>
-                        <Text style={{ width: '25%' }}>{hardDv.price * quantity}</Text>
+                        <Text style={{ width: '25%' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(hardDv.price)}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <View style={{ width: '40%', flexDirection: 'row' }}>
-                            <Image style={{ width: 50, height: 50 }} source={radiators.image}></Image>
+                        <View style={{ width: '70%', flexDirection: 'row' }}>
+                            <Image style={{ width: 55, height: 55 }} source={radiators.image}></Image>
                             <Text style={{ width: '60%' }}>{radiators.name}</Text>
                         </View>
-                        <Text style={{ width: '25%' }}>{radiators.price}</Text>
-                        <Text style={{ width: '10%' }}>{quantity}</Text>
-                        <Text style={{ width: '25%' }}>{radiators.price * quantity}</Text>
+                        <Text style={{ width: '25%' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(radiators.price)}</Text>
                     </View>
                     <View style={{ marginTop: 10, alignItems: 'flex-end' }}>
                         <Text style={{ width: '50%', fontSize: 15 }}>
                             Tổng giá:
-                            <Text style={{ color: 'red', marginLeft: 10 }}>{' ' + new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice * quantity)}</Text>
+                            <Text style={{ color: 'red', marginLeft: 10 }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)}</Text>
                         </Text>
                     </View>
                     <TouchableOpacity
                         onPress={() =>
                             navigation.navigate('Payment', {
-                                totalPrice: totalPrice * quantity,
+                                totalPrice: totalPrice,
                             })
                         }
                         style={{ marginTop: 10, alignItems: 'flex-end', marginRight: 30 }}
