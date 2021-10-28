@@ -51,6 +51,9 @@ export function Processing({ navigation }) {
                             Giá sản phẩm: <Text style={styles.description}>{totalStr2}</Text>
                         </Text>
                         <Text style={styles.title}>
+                            Số lượng: <Text style={styles.description}>{`1`}</Text>
+                        </Text>
+                        <Text style={styles.title}>
                             Tổng cộng: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(30000 + totalPrice2)}</Text>
                         </Text>
                         <Text style={{ color: '#000', fontWeight: 'bold' }}>Tình trạng: {cancel ? <Text style={{ fontWeight: '100', color: 'red' }}>{'Đã hủy'}</Text> : <Text style={{ fontWeight: '100', color: 'blue' }}>{'Chờ xác nhận'}</Text>}</Text>
@@ -110,6 +113,9 @@ export function Processing({ navigation }) {
                         </Text>
                         <Text style={styles.title}>
                             Giá sản phẩm: <Text style={styles.description}>{totalStr}</Text>
+                        </Text>
+                        <Text style={styles.title}>
+                            Số lượng: <Text style={styles.description}>{`1`}</Text>
                         </Text>
                         <Text style={styles.title}>
                             Tổng cộng: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(40000 + totalPrice)}</Text>

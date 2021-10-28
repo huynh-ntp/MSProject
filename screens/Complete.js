@@ -44,6 +44,9 @@ export function Complete({ navigation }) {
                         Giá sản phẩm: <Text style={styles.description}>{totalStr}</Text>
                     </Text>
                     <Text style={styles.title}>
+                        Số lượng: <Text style={styles.description}>{`1`}</Text>
+                    </Text>
+                    <Text style={styles.title}>
                         Tổng cộng: <Text style={{ fontWeight: '100', color: 'red' }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(30000 + totalPrice)}</Text>
                     </Text>
                     <Text style={{ color: '#000', fontWeight: 'bold' }}>
